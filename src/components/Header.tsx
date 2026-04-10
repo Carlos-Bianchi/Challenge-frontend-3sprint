@@ -5,10 +5,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="bg-blue-900 text-white shadow-md">
+    <header className="bg-[#1E7E34] text-white shadow-md">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold tracking-tight hover:text-blue-200 transition-colors">
-          SmileMatch
+        <Link to="/" className="flex items-center gap-2 text-2xl font-bold tracking-tight hover:text-[#FFB700] transition-colors">
+          🦷 Turma do Bem
         </Link>
 
         <button
@@ -24,24 +24,24 @@ export default function Header() {
         <nav
           className={`${
             menuOpen ? 'flex' : 'hidden'
-          } md:flex flex-col md:flex-row absolute md:static top-16 left-0 w-full md:w-auto bg-blue-900 md:bg-transparent z-50 md:z-auto gap-1 md:gap-6 px-4 md:px-0 pb-4 md:pb-0`}
+          } md:flex flex-col md:flex-row absolute md:static top-16 left-0 w-full md:w-auto bg-[#1E7E34] md:bg-transparent z-50 md:z-auto gap-1 md:gap-6 px-4 md:px-0 pb-4 md:pb-0`}
         >
-          <Link to="/" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
-          <Link to="/sobre" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/sobre" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             Sobre
           </Link>
-          <Link to="/faq" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/faq" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             FAQ
           </Link>
-          <Link to="/contato" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/contato" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             Contato
           </Link>
-          <Link to="/integrantes" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/integrantes" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             Integrantes
           </Link>
-          <Link to="/solucao" className="py-2 md:py-0 hover:text-blue-300 transition-colors font-medium" onClick={() => setMenuOpen(false)}>
+          <Link to="/solucao" className="py-2 md:py-0 hover:text-[#FFB700] transition-colors font-medium" onClick={() => setMenuOpen(false)}>
             Solução
           </Link>
         </nav>
