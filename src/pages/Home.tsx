@@ -1,18 +1,20 @@
 import { Link } from 'react-router-dom'
+import Card from '../components/ui/Card'
+import Button from '../components/ui/Button'
 
-interface CardProps {
+interface FeatureCardProps {
   icon: string
   title: string
   description: string
 }
 
-function FeatureCard({ icon, title, description }: CardProps) {
+function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition-shadow">
+    <Card className="flex flex-col items-center text-center hover:shadow-lg transition-shadow">
       <span className="text-4xl mb-4">{icon}</span>
       <h3 className="text-lg font-semibold text-gray-800 mb-2">{title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
-    </div>
+    </Card>
   )
 }
 
@@ -24,11 +26,11 @@ interface StatCardProps {
 
 function StatCard({ value, label, icon }: StatCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col items-center text-center">
+    <Card className="flex flex-col items-center text-center">
       <span className="text-3xl mb-2">{icon}</span>
       <p className="text-3xl font-bold text-[#1E7E34] my-1">{value}</p>
       <p className="text-gray-500 text-sm">{label}</p>
-    </div>
+    </Card>
   )
 }
 
@@ -47,11 +49,10 @@ export default function Home() {
             conectando voluntários e pacientes de forma eficiente. Transformando
             sorrisos e vidas através da tecnologia e solidariedade.
           </p>
-          <Link
-            to="/solucao"
-            className="inline-block bg-[#FFB700] text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-yellow-400 transition-colors text-base md:text-lg"
-          >
-            Conhecer Solução →
+          <Link to="/solucao">
+            <Button variant="primary" className="text-base md:text-lg">
+              Conhecer Solução →
+            </Button>
           </Link>
         </div>
       </section>
