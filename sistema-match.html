@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Match - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fa-solid fa-tooth"></i>
+                    <a href="index.html">Turma do Bem</a> 
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle active"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sistema-match.html" class="active"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                                <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                                <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                                <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                                <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-handshake" style="color: var(--cor-primaria);"></i> Sistema de Match</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Conecte pacientes aos dentistas voluntários mais adequados baseado em localização, disponibilidade e especialidade.
+                </p>
+            </section>
+
+            <!-- Match Controls -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-sliders" style="color: var(--cor-secundaria);"></i> Filtros de Match</h2>
+                    <div class="cards-grid">
+                        <div class="form-group">
+                            <label for="regiao"><i class="fa-solid fa-map-location-dot"></i> Região</label>
+                            <select id="regiao">
+                                <option value="">Todas as regiões</option>
+                                <option value="norte">Zona Norte</option>
+                                <option value="sul">Zona Sul</option>
+                                <option value="leste">Zona Leste</option>
+                                <option value="oeste">Zona Oeste</option>
+                                <option value="centro">Centro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="especialidade"><i class="fa-solid fa-user-doctor"></i> Especialidade</label>
+                            <select id="especialidade">
+                                <option value="">Todas as especialidades</option>
+                                <option value="clinica-geral">Clínica Geral</option>
+                                <option value="ortodontia">Ortodontia</option>
+                                <option value="endodontia">Endodontia</option>
+                                <option value="periodontia">Periodontia</option>
+                                <option value="cirurgia">Cirurgia Oral</option>
+                                <option value="pediatrica">Odontopediatria</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prioridade"><i class="fa-solid fa-exclamation-triangle"></i> Prioridade</label>
+                            <select id="prioridade">
+                                <option value="">Todas as prioridades</option>
+                                <option value="alta">Alta</option>
+                                <option value="media">Média</option>
+                                <option value="baixa">Baixa</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center" style="margin-top: 2rem;">
+                        <button class="btn btn-primary">
+                            <i class="fa-solid fa-search"></i> Buscar Matches
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fa-solid fa-magic-wand-sparkles"></i> Match Automático
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pending Matches -->
+            <section class="section">
+                <h2 class="section-title">Matches Pendentes</h2>
+                <div class="cards-grid">
+                    <!-- Match Card 1 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">
+                                <i class="fa-solid fa-user"></i> Maria Silva
+                            </h3>
+                            <div class="priority-badge priority-high">
+                                <i class="fa-solid fa-exclamation-triangle"></i>
+                                <span>Alta Prioridade</span>
+                            </div>
+                        </div>
+                        <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Zona Sul</p>
+                        <p><i class="fa-solid fa-tooth"></i> <strong>Necessidade:</strong> Tratamento de Canal</p>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Manhãs</p>
+                        
+                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee;">
+                            <h4 style="color: var(--cor-primaria); margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor"></i> Match Sugerido
+                            </h4>
+                            <p><strong>Dr. João Santos</strong> - Endodontista</p>
+                            <p><i class="fa-solid fa-star"></i> 98% de compatibilidade</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="btn btn-primary" style="flex: 1;">
+                                    <i class="fa-solid fa-check"></i> Confirmar Match
+                                </button>
+                                <button class="btn btn-outline" style="flex: 1;">
+                                    <i class="fa-solid fa-search"></i> Ver Outros
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match Card 2 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">
+                                <i class="fa-solid fa-child"></i> Pedro Oliveira
+                            </h3>
+                            <div class="priority-badge priority-medium">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Média Prioridade</span>
+                            </div>
+                        </div>
+                        <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Zona Norte</p>
+                        <p><i class="fa-solid fa-tooth"></i> <strong>Necessidade:</strong> Limpeza + Aplicação de Flúor</p>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Tardes</p>
+                        
+                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee;">
+                            <h4 style="color: var(--cor-primaria); margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor"></i> Match Sugerido
+                            </h4>
+                            <p><strong>Dra. Ana Costa</strong> - Odontopediatra</p>
+                            <p><i class="fa-solid fa-star"></i> 95% de compatibilidade</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="btn btn-primary" style="flex: 1;">
+                                    <i class="fa-solid fa-check"></i> Confirmar Match
+                                </button>
+                                <button class="btn btn-outline" style="flex: 1;">
+                                    <i class="fa-solid fa-search"></i> Ver Outros
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match Card 3 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">
+                                <i class="fa-solid fa-user"></i> Carlos Mendes
+                            </h3>
+                            <div class="priority-badge priority-low">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>Baixa Prioridade</span>
+                            </div>
+                        </div>
+                        <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Centro</p>
+                        <p><i class="fa-solid fa-tooth"></i> <strong>Necessidade:</strong> Consulta Preventiva</p>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Flexível</p>
+                        
+                        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid #eee;">
+                            <h4 style="color: var(--cor-primaria); margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor"></i> Match Sugerido
+                            </h4>
+                            <p><strong>Dr. Roberto Lima</strong> - Clínica Geral</p>
+                            <p><i class="fa-solid fa-star"></i> 92% de compatibilidade</p>
+                            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                                <button class="btn btn-primary" style="flex: 1;">
+                                    <i class="fa-solid fa-check"></i> Confirmar Match
+                                </button>
+                                <button class="btn btn-outline" style="flex: 1;">
+                                    <i class="fa-solid fa-search"></i> Ver Outros
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Match Statistics -->
+            <section class="section">
+                <h2 class="section-title">Estatísticas do Sistema</h2>
+                <div class="cards-grid">
+                    <div class="card text-center">
+                        <i class="fa-solid fa-handshake" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">1.247</h3>
+                        <p>Matches Realizados</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">23</h3>
+                        <p>Matches Pendentes</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-percentage" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">94%</h3>
+                        <p>Taxa de Sucesso</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-stopwatch" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">2.3h</h3>
+                        <p>Tempo Médio de Match</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-gears" style="color: var(--cor-secundaria);"></i> Como Funciona o Sistema</h2>
+                    <div class="cards-grid">
+                        <div style="text-align: center;">
+                            <i class="fa-solid fa-database" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>1. Análise de Dados</h3>
+                            <p>O sistema analisa perfis de pacientes e dentistas, considerando localização, especialidade e disponibilidade.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fa-solid fa-brain" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>2. Algoritmo Inteligente</h3>
+                            <p>Utiliza inteligência artificial para calcular a compatibilidade e sugerir os melhores matches.</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fa-solid fa-bell" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>3. Notificação</h3>
+                            <p>Ambas as partes são notificadas sobre o match sugerido e podem confirmar ou solicitar alternativas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

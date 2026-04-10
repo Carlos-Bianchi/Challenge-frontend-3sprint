@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Comunicação - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+   <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fa-solid fa-tooth"></i>
+                <a href="index.html">Turma do Bem</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                    <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle active"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                            <li><a href="comunicacao.html" class="active"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                            <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                            <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                            <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-comments" style="color: var(--cor-primaria);"></i> Centro de Comunicação</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Centralize toda comunicação da ONG em um só lugar. Gerencie mensagens, notificações e mantenha todos conectados.
+                </p>
+            </section>
+
+            <!-- Communication Dashboard -->
+            <section class="section">
+                <div class="cards-grid">
+                    <!-- Inbox -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-inbox" style="color: var(--cor-primaria);"></i> Caixa de Entrada</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>Mensagens não lidas</span>
+                            <div class="notification-circle red">12</div>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">
+                            <i class="fa-solid fa-envelope-open"></i> Ver Mensagens
+                        </button>
+                    </div>
+
+                    <!-- Sent Messages -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-paper-plane" style="color: var(--cor-primaria);"></i> Mensagens Enviadas</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>Total enviadas hoje</span>
+                            <div class="notification-circle green">8</div>
+                        </div>
+                        <button class="btn btn-secondary" style="width: 100%;">
+                            <i class="fa-solid fa-list"></i> Ver Enviadas
+                        </button>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-bell" style="color: var(--cor-primaria);"></i> Notificações</h3>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>Notificações ativas</span>
+                            <div class="notification-circle yellow">5</div>
+                        </div>
+                        <button class="btn btn-outline" style="width: 100%;">
+                            <i class="fa-solid fa-bell-slash"></i> Gerenciar
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-bolt" style="color: var(--cor-secundaria);"></i> Ações Rápidas</h2>
+                    <div class="cards-grid">
+                        <button class="btn btn-primary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-plus" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Nova Mensagem
+                        </button>
+                        <button class="btn btn-secondary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-bullhorn" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Comunicado Geral
+                        </button>
+                        <button class="btn btn-outline" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-calendar-plus" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Agendar Envio
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Messages -->
+            <section class="section">
+                <h2 class="section-title">Mensagens Recentes</h2>
+                <div class="cards-grid">
+                    <!-- Message 1 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor" style="color: var(--cor-primaria);"></i>
+                                <strong>Dr. João Santos</strong>
+                            </div>
+                            <span style="font-size: 0.9rem; color: #666;">Há 2 horas</span>
+                        </div>
+                        <h4 style="color: var(--cor-secundaria); margin-bottom: 0.5rem;">Confirmação de Consulta</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Confirmo a consulta com Maria Silva para amanhã às 14h. Todos os materiais estão preparados...</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-reply"></i> Responder
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-archive"></i> Arquivar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Message 2 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-user" style="color: var(--cor-primaria);"></i>
+                                <strong>Maria Silva</strong>
+                            </div>
+                            <span style="font-size: 0.9rem; color: #666;">Há 4 horas</span>
+                        </div>
+                        <h4 style="color: var(--cor-secundaria); margin-bottom: 0.5rem;">Dúvida sobre Tratamento</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Gostaria de saber mais detalhes sobre o procedimento que será realizado. É minha primeira vez...</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-reply"></i> Responder
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-archive"></i> Arquivar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Message 3 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-user-tie" style="color: var(--cor-primaria);"></i>
+                                <strong>Admin Sistema</strong>
+                            </div>
+                            <span style="font-size: 0.9rem; color: #666;">Ontem</span>
+                        </div>
+                        <h4 style="color: var(--cor-secundaria); margin-bottom: 0.5rem;">Atualização do Sistema</h4>
+                        <p style="color: #666; margin-bottom: 1rem;">Nova versão do sistema será implantada na próxima semana. Confira as novidades...</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Ver Detalhes
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-archive"></i> Arquivar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication Channels -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-broadcast-tower" style="color: var(--cor-secundaria);"></i> Canais de Comunicação</h2>
+                    <div class="cards-grid">
+                        <div class="card" style="text-align: center;">
+                            <i class="fa-solid fa-envelope" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>E-mail</h3>
+                            <p>Comunicação formal e documentada</p>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge" style="background-color: var(--cor-secundaria); color: white;">Ativo</span>
+                            </div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <i class="fa-solid fa-mobile-screen" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>SMS</h3>
+                            <p>Notificações urgentes e lembretes</p>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge" style="background-color: var(--cor-secundaria); color: white;">Ativo</span>
+                            </div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>WhatsApp</h3>
+                            <p>Comunicação rápida e informal</p>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge" style="background-color: #28a745; color: white;">Em Breve</span>
+                            </div>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <i class="fa-solid fa-bell" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                            <h3>Push Notifications</h3>
+                            <p>Alertas em tempo real no sistema</p>
+                            <div style="margin-top: 1rem;">
+                                <span class="badge" style="background-color: var(--cor-secundaria); color: white;">Ativo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication Stats -->
+            <section class="section">
+                <h2 class="section-title">Estatísticas de Comunicação</h2>
+                <div class="cards-grid">
+                    <div class="card text-center">
+                        <i class="fa-solid fa-paper-plane" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">2.847</h3>
+                        <p>Mensagens Enviadas</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-envelope-open" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">96%</h3>
+                        <p>Taxa de Abertura</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">1.2h</h3>
+                        <p>Tempo Médio de Resposta</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-users" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">1.456</h3>
+                        <p>Usuários Ativos</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Message Templates -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-file-lines" style="color: var(--cor-secundaria);"></i> Modelos de Mensagem</h2>
+                    <p>Use modelos pré-definidos para agilizar a comunicação:</p>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h4><i class="fa-solid fa-calendar-check"></i> Confirmação de Consulta</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Modelo para confirmar agendamentos com pacientes</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                        <div class="card">
+                            <h4><i class="fa-solid fa-clock"></i> Lembrete de Consulta</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Lembrete automático 24h antes da consulta</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                        <div class="card">
+                            <h4><i class="fa-solid fa-heart"></i> Agradecimento</h4>
+                            <p style="font-size: 0.9rem; color: #666;">Mensagem de agradecimento pós-atendimento</p>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

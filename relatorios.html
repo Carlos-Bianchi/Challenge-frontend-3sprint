@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Consulta - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fa-solid fa-tooth"></i>
+                    <a href="index.html">Turma do Bem</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                        <li class="dropdown active">
+                            <a href="#" class="dropdown-toggle active"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                                <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                                <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                                <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                                <li><a href="relatorios.html" class="active"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-file-medical" style="color: var(--cor-primaria);"></i> Relatórios de Consulta</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Área dedicada para dentistas enviarem relatórios de consultas realizadas e acompanharem o histórico de atendimentos.
+                </p>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section">
+                <div class="cards-grid">
+                    <div class="card text-center">
+                        <i class="fa-solid fa-plus-circle" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                        <h3>Novo Relatório</h3>
+                        <p>Criar um novo relatório de consulta</p>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fa-solid fa-plus"></i> Criar Relatório
+                        </button>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-list" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                        <h3>Meus Relatórios</h3>
+                        <p>Visualizar relatórios enviados</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;">
+                            <i class="fa-solid fa-eye"></i> Ver Relatórios
+                        </button>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-file-lines" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                        <h3>Modelos</h3>
+                        <p>Usar modelos pré-definidos</p>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">
+                            <i class="fa-solid fa-copy"></i> Ver Modelos
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report Form -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-file-pen" style="color: var(--cor-secundaria);"></i> Criar Novo Relatório</h2>
+                    <form style="margin-top: 2rem;">
+                        <!-- Patient Information -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                            <div class="form-group">
+                                <label for="paciente"><i class="fa-solid fa-user"></i> Paciente</label>
+                                <select id="paciente" required>
+                                    <option value="">Selecione o paciente</option>
+                                    <option value="maria-silva">Maria Silva - CPF: 123.456.789-00</option>
+                                    <option value="pedro-oliveira">Pedro Oliveira - CPF: 987.654.321-00</option>
+                                    <option value="ana-santos">Ana Santos - CPF: 456.789.123-00</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="data-consulta"><i class="fa-solid fa-calendar"></i> Data da Consulta</label>
+                                <input type="date" id="data-consulta" required>
+                            </div>
+                        </div>
+
+                        <!-- Consultation Details -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                            <div class="form-group">
+                                <label for="tipo-consulta"><i class="fa-solid fa-stethoscope"></i> Tipo de Consulta</label>
+                                <select id="tipo-consulta" required>
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="consulta-inicial">Consulta Inicial</option>
+                                    <option value="retorno">Retorno</option>
+                                    <option value="emergencia">Emergência</option>
+                                    <option value="preventiva">Consulta Preventiva</option>
+                                    <option value="tratamento">Tratamento</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="duracao"><i class="fa-solid fa-clock"></i> Duração (minutos)</label>
+                                <input type="number" id="duracao" min="15" max="180" placeholder="Ex: 60">
+                            </div>
+                        </div>
+
+                        <!-- Clinical Information -->
+                        <div class="form-group">
+                            <label for="anamnese"><i class="fa-solid fa-clipboard-question"></i> Anamnese</label>
+                            <textarea id="anamnese" rows="4" placeholder="Histórico médico, queixas principais, sintomas relatados pelo paciente..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exame-clinico"><i class="fa-solid fa-magnifying-glass"></i> Exame Clínico</label>
+                            <textarea id="exame-clinico" rows="4" placeholder="Observações do exame clínico, condições encontradas, diagnóstico..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="procedimentos"><i class="fa-solid fa-tools"></i> Procedimentos Realizados</label>
+                            <textarea id="procedimentos" rows="4" placeholder="Descreva detalhadamente os procedimentos realizados durante a consulta..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="materiais"><i class="fa-solid fa-box"></i> Materiais Utilizados</label>
+                            <textarea id="materiais" rows="3" placeholder="Liste os materiais e medicamentos utilizados..."></textarea>
+                        </div>
+
+                        <!-- Treatment Plan -->
+                        <div class="form-group">
+                            <label for="plano-tratamento"><i class="fa-solid fa-route"></i> Plano de Tratamento</label>
+                            <textarea id="plano-tratamento" rows="4" placeholder="Descreva o plano de tratamento proposto, próximos passos..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="orientacoes"><i class="fa-solid fa-lightbulb"></i> Orientações ao Paciente</label>
+                            <textarea id="orientacoes" rows="3" placeholder="Orientações de cuidados, medicações prescritas, recomendações..."></textarea>
+                        </div>
+
+                        <!-- Follow-up -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                            <div class="form-group">
+                                <label for="retorno"><i class="fa-solid fa-calendar-plus"></i> Necessita Retorno?</label>
+                                <select id="retorno">
+                                    <option value="nao">Não</option>
+                                    <option value="sim">Sim</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prazo-retorno"><i class="fa-solid fa-calendar-days"></i> Prazo para Retorno</label>
+                                <select id="prazo-retorno">
+                                    <option value="">Selecione o prazo</option>
+                                    <option value="1-semana">1 semana</option>
+                                    <option value="2-semanas">2 semanas</option>
+                                    <option value="1-mes">1 mês</option>
+                                    <option value="3-meses">3 meses</option>
+                                    <option value="6-meses">6 meses</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="form-group">
+                            <label for="anexos"><i class="fa-solid fa-paperclip"></i> Anexos (Radiografias, Fotos, etc.)</label>
+                            <input type="file" id="anexos" multiple accept="image/*,.pdf">
+                            <small style="color: #666; display: block; margin-top: 0.5rem;">
+                                Formatos aceitos: JPG, PNG, PDF. Tamanho máximo: 5MB por arquivo.
+                            </small>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="form-group">
+                            <label for="observacoes"><i class="fa-solid fa-note-sticky"></i> Observações Adicionais</label>
+                            <textarea id="observacoes" rows="3" placeholder="Qualquer informação adicional relevante..."></textarea>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem;">
+                            <button type="button" class="btn btn-outline">
+                                <i class="fa-solid fa-save"></i> Salvar Rascunho
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-paper-plane"></i> Enviar Relatório
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Recent Reports -->
+            <section class="section">
+                <h2 class="section-title">Relatórios Recentes</h2>
+                <div class="cards-grid">
+                    <!-- Report 1 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">Maria Silva</h3>
+                            <span class="badge" style="background-color: #28a745; color: white;">Enviado</span>
+                        </div>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Data:</strong> 15/10/2024</p>
+                        <p><i class="fa-solid fa-stethoscope"></i> <strong>Tipo:</strong> Tratamento de Canal</p>
+                        <p><i class="fa-solid fa-clock"></i> <strong>Duração:</strong> 90 minutos</p>
+                        <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                            Procedimento de endodontia realizado com sucesso. Paciente orientada sobre cuidados pós-operatórios...
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Visualizar
+                            </button>
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-edit"></i> Editar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Report 2 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">Pedro Oliveira</h3>
+                            <span class="badge" style="background-color: #ffc107; color: #333;">Rascunho</span>
+                        </div>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Data:</strong> 14/10/2024</p>
+                        <p><i class="fa-solid fa-stethoscope"></i> <strong>Tipo:</strong> Consulta Preventiva</p>
+                        <p><i class="fa-solid fa-clock"></i> <strong>Duração:</strong> 45 minutos</p>
+                        <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                            Limpeza dental e aplicação de flúor. Orientações sobre higiene bucal fornecidas...
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="btn btn-secondary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-edit"></i> Continuar
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-trash"></i> Excluir
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Report 3 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h3 style="margin: 0; color: var(--cor-secundaria);">Ana Santos</h3>
+                            <span class="badge" style="background-color: #28a745; color: white;">Enviado</span>
+                        </div>
+                        <p><i class="fa-solid fa-calendar"></i> <strong>Data:</strong> 12/10/2024</p>
+                        <p><i class="fa-solid fa-stethoscope"></i> <strong>Tipo:</strong> Consulta Inicial</p>
+                        <p><i class="fa-solid fa-clock"></i> <strong>Duração:</strong> 60 minutos</p>
+                        <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">
+                            Primeira consulta da paciente. Avaliação geral da saúde bucal e plano de tratamento elaborado...
+                        </p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Visualizar
+                            </button>
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Report Templates -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-file-lines" style="color: var(--cor-secundaria);"></i> Modelos de Relatório</h2>
+                    <p>Use modelos pré-definidos para agilizar a criação de relatórios:</p>
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3><i class="fa-solid fa-user-plus" style="color: var(--cor-primaria);"></i> Consulta Inicial</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Modelo para primeira consulta do paciente</p>
+                            <ul style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
+                                <li>Anamnese completa</li>
+                                <li>Exame clínico detalhado</li>
+                                <li>Plano de tratamento</li>
+                            </ul>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                        <div class="card">
+                            <h3><i class="fa-solid fa-arrow-rotate-left" style="color: var(--cor-primaria);"></i> Consulta de Retorno</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Modelo para consultas de acompanhamento</p>
+                            <ul style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
+                                <li>Evolução do tratamento</li>
+                                <li>Procedimentos realizados</li>
+                                <li>Próximos passos</li>
+                            </ul>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                        <div class="card">
+                            <h3><i class="fa-solid fa-exclamation-triangle" style="color: var(--cor-primaria);"></i> Atendimento de Emergência</h3>
+                            <p style="font-size: 0.9rem; color: #666;">Modelo para atendimentos urgentes</p>
+                            <ul style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
+                                <li>Queixa principal</li>
+                                <li>Procedimento de urgência</li>
+                                <li>Orientações imediatas</li>
+                            </ul>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-copy"></i> Usar Modelo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="section">
+                <h2 class="section-title">Estatísticas dos Relatórios</h2>
+                <div class="cards-grid">
+                    <div class="card text-center">
+                        <i class="fa-solid fa-file-medical" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">47</h3>
+                        <p>Relatórios Enviados</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">3</h3>
+                        <p>Rascunhos Pendentes</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-calendar-week" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">12</h3>
+                        <p>Relatórios Este Mês</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-star" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">4.9</h3>
+                        <p>Avaliação Média</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

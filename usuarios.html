@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuários - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo" >
+                <i class="fa-solid fa-tooth"></i>
+              <a href="index.html">Turma do Bem</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                    <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle active"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                            <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                            <li><a href="usuarios.html" class="active"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                            <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                            <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-users-gear" style="color: var(--cor-primaria);"></i> Gestão de Usuários</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Gerencie dentistas voluntários, pacientes e administradores do sistema de forma centralizada e eficiente.
+                </p>
+            </section>
+
+            <!-- User Type Tabs -->
+            <section class="section">
+                <div class="card">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
+                        <button class="btn btn-primary" id="tab-dentistas">
+                            <i class="fa-solid fa-user-doctor"></i> Dentistas (127)
+                        </button>
+                        <button class="btn btn-outline" id="tab-pacientes">
+                            <i class="fa-solid fa-user"></i> Pacientes (1.456)
+                        </button>
+                        <button class="btn btn-outline" id="tab-admins">
+                            <i class="fa-solid fa-user-shield"></i> Administradores (8)
+                        </button>
+                    </div>
+
+                    <!-- Search and Filter Bar -->
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <div class="form-group" style="flex: 2; margin-bottom: 0;">
+                            <input type="text" placeholder="Buscar por nome, email ou especialidade..." style="width: 100%;">
+                        </div>
+                        <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                            <select>
+                                <option value="">Todas as regiões</option>
+                                <option value="norte">Zona Norte</option>
+                                <option value="sul">Zona Sul</option>
+                                <option value="leste">Zona Leste</option>
+                                <option value="oeste">Zona Oeste</option>
+                                <option value="centro">Centro</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary">
+                            <i class="fa-solid fa-search"></i> Buscar
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fa-solid fa-plus"></i> Novo Usuário
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dentists Section -->
+            <section class="section" id="dentistas-section">
+                <h2 class="section-title">Dentistas Voluntários</h2>
+                <div class="cards-grid">
+                    <!-- Dentist Card 1 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--cor-cinza-claro); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-user-doctor" style="font-size: 1.5rem; color: var(--cor-secundaria);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0; color: var(--cor-secundaria);">Dr. João Santos</h3>
+                                    <p style="margin: 0; color: #666; font-size: 0.9rem;">CRO: 12345-SP</p>
+                                </div>
+                            </div>
+                            <div class="status-badge status-active">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>Ativo</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <p><i class="fa-solid fa-stethoscope"></i> <strong>Especialidade:</strong> Endodontia</p>
+                            <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Zona Sul</p>
+                            <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Seg, Qua, Sex</p>
+                            <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> joao.santos@email.com</p>
+                            <p><i class="fa-solid fa-phone"></i> <strong>Telefone:</strong> (11) 99999-1234</p>
+                        </div>
+
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-edit"></i> Editar
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Ver Perfil
+                            </button>
+                            <button class="btn" style="background-color: #dc3545; color: white; font-size: 0.9rem;">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dentist Card 2 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--cor-cinza-claro); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-user-doctor" style="font-size: 1.5rem; color: var(--cor-secundaria);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0; color: var(--cor-secundaria);">Dra. Ana Costa</h3>
+                                    <p style="margin: 0; color: #666; font-size: 0.9rem;">CRO: 67890-SP</p>
+                                </div>
+                            </div>
+                            <div class="status-badge status-active">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>Ativo</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <p><i class="fa-solid fa-stethoscope"></i> <strong>Especialidade:</strong> Odontopediatria</p>
+                            <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Zona Norte</p>
+                            <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Ter, Qui, Sáb</p>
+                            <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> ana.costa@email.com</p>
+                            <p><i class="fa-solid fa-phone"></i> <strong>Telefone:</strong> (11) 99999-5678</p>
+                        </div>
+
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-edit"></i> Editar
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Ver Perfil
+                            </button>
+                            <button class="btn" style="background-color: #dc3545; color: white; font-size: 0.9rem;">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dentist Card 3 -->
+                    <div class="card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--cor-cinza-claro); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa-solid fa-user-doctor" style="font-size: 1.5rem; color: var(--cor-secundaria);"></i>
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0; color: var(--cor-secundaria);">Dr. Roberto Lima</h3>
+                                    <p style="margin: 0; color: #666; font-size: 0.9rem;">CRO: 11111-SP</p>
+                                </div>
+                            </div>
+                            <div class="status-badge status-pending">
+                                <i class="fa-solid fa-clock"></i>
+                                <span>Pendente</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <p><i class="fa-solid fa-stethoscope"></i> <strong>Especialidade:</strong> Clínica Geral</p>
+                            <p><i class="fa-solid fa-map-marker-alt"></i> <strong>Região:</strong> Centro</p>
+                            <p><i class="fa-solid fa-calendar"></i> <strong>Disponibilidade:</strong> Flexível</p>
+                            <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> roberto.lima@email.com</p>
+                            <p><i class="fa-solid fa-phone"></i> <strong>Telefone:</strong> (11) 99999-9012</p>
+                        </div>
+
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-secondary" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-check"></i> Aprovar
+                            </button>
+                            <button class="btn btn-outline" style="flex: 1; font-size: 0.9rem;">
+                                <i class="fa-solid fa-eye"></i> Revisar
+                            </button>
+                            <button class="btn" style="background-color: #dc3545; color: white; font-size: 0.9rem;">
+                                <i class="fa-solid fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Statistics -->
+            <section class="section">
+                <h2 class="section-title">Estatísticas de Usuários</h2>
+                <div class="cards-grid">
+                    <div class="card text-center">
+                        <i class="fa-solid fa-user-doctor" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">127</h3>
+                        <p>Dentistas Ativos</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-users" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">1.456</h3>
+                        <p>Pacientes Cadastrados</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-user-plus" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">23</h3>
+                        <p>Novos Cadastros (Mês)</p>
+                    </div>
+                    <div class="card text-center">
+                        <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--cor-primaria);"></i>
+                        <h3 style="font-size: 2.5rem; color: var(--cor-secundaria); margin: 0.5rem 0;">12</h3>
+                        <p>Aprovações Pendentes</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="section">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h2 style="margin: 0;"><i class="fa-solid fa-bolt" style="color: var(--cor-secundaria);"></i> Ações Rápidas</h2>
+                        <button class="btn btn-outline" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                            <i class="fa-solid fa-file-export"></i> Exportar Dados
+                        </button>
+                    </div>
+                    <div class="cards-grid">
+                        <button class="btn btn-primary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <div style="position: relative; display: inline-block; margin-bottom: 0.5rem;">
+                                <i class="fa-solid fa-user-doctor" style="font-size: 2rem;"></i>
+                                <i class="fa-solid fa-plus" style="position: absolute; top: 5px; right: -8px; font-size: 0.8rem; color: black; text-shadow: 0.5px 0 0 black, -0.5px 0 0 black, 0 0.5px 0 black, 0 -0.5px 0 black;"></i>
+                            </div>
+                            Cadastrar Dentista
+                        </button>
+                        <button class="btn btn-secondary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-user-check" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Aprovar Cadastros
+                        </button>
+                        <button class="btn btn-primary" style="display: flex; flex-direction: column; align-items: center; padding: 2rem;">
+                            <i class="fa-solid fa-user-plus" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                            Cadastrar Paciente
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Management Tools -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-tools" style="color: var(--cor-secundaria);"></i> Ferramentas de Gestão</h2>
+                    <div class="cards-grid">
+                        <div class="card" style="display: flex; flex-direction: column;">
+                            <h3><i class="fa-solid fa-shield-halved" style="color: var(--cor-primaria);"></i> Controle de Acesso</h3>
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Gerencie permissões e níveis de acesso dos usuários ao sistema.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-key"></i> Gerenciar Permissões
+                            </button>
+                        </div>
+                        <div class="card" style="display: flex; flex-direction: column;">
+                            <h3><i class="fa-solid fa-history" style="color: var(--cor-primaria);"></i> Histórico de Atividades</h3>
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Visualize o log de atividades e ações realizadas pelos usuários.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-list"></i> Ver Histórico
+                            </button>
+                        </div>
+                        <div class="card" style="display: flex; flex-direction: column;">
+                            <h3><i class="fa-solid fa-ban" style="color: var(--cor-primaria);"></i> Usuários Bloqueados</h3>
+                            <p style="margin-top: auto; margin-bottom: 1rem;">Gerencie usuários suspensos ou com acesso restrito ao sistema.</p>
+                            <button class="btn btn-outline" style="width: 100%;">
+                                <i class="fa-solid fa-user-slash"></i> Ver Bloqueados
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

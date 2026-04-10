@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fa-solid fa-tooth"></i>
+                    <a href="index.html">Turma do Bem</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li><a href="contato.html" class="active"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                                <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                                <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                                <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                                <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-envelope" style="color: var(--cor-primaria);"></i> Entre em Contato</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Adorariamos ouvir de você! Envie suas dúvidas, sugestões ou feedback. 
+                    Nossa equipe responderá o mais breve possível.
+                </p>
+            </section>
+
+            <!-- Contact Content -->
+            <section class="section">
+                <div class="contact-content">
+                    <!-- Formulário de Contato -->
+                    <div class="contact-form">
+                        <h2><i class="fa-solid fa-message"></i> Envie sua Mensagem</h2>
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="nome">
+                                    <i class="fa-solid fa-user"></i> Nome Completo
+                                    <span style="color: var(--cor-primaria);">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="nome" 
+                                    name="nome" 
+                                    placeholder="Digite seu nome completo"
+                                    minlength="3"
+                                    maxlength="100"
+                                >
+                                <span class="error-message" id="nome-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fa-solid fa-at"></i> E-mail
+                                    <span style="color: var(--cor-primaria);">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="seu.email@exemplo.com"
+                                >
+                                <span class="error-message" id="email-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="assunto">
+                                    <i class="fa-solid fa-bookmark"></i> Assunto
+                                    <span style="color: var(--cor-primaria);">*</span>
+                                </label>
+                                <select id="assunto" name="assunto">
+                                    <option value="" disabled selected>Selecione um assunto</option>
+                                    <option value="duvida">Dúvida Geral</option>
+                                    <option value="sugestao">Sugestão de Melhoria</option>
+                                    <option value="bug">Reportar Problema/Bug</option>
+                                    <option value="outro">Outro Assunto</option>
+                                </select>
+                                <span class="error-message" id="assunto-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensagem">
+                                    <i class="fa-solid fa-comment-dots"></i> Mensagem
+                                    <span style="color: var(--cor-primaria);">*</span>
+                                </label>
+                                <textarea 
+                                    id="mensagem" 
+                                    name="mensagem" 
+                                    placeholder="Digite sua mensagem aqui... (mínimo 10 caracteres)"
+                                    minlength="10"
+                                    maxlength="1000"
+                                    rows="6"
+                                ></textarea>
+                                <small style="color: var(--cor-texto); opacity: 0.7;">
+                                    <span id="charCount">0</span>/1000 caracteres
+                                    <span id="draft-status" style="margin-left: 1rem; color: var(--cor-secundaria); font-style: italic;"></span>
+                                </small>
+                                <span class="error-message" id="mensagem-error"></span>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                                <button type="submit" class="btn btn-primary" style="flex: 1;">
+                                    <i class="fa-solid fa-paper-plane"></i> Enviar Mensagem
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato -->
+                    <div class="contact-info">
+                        <h2><i class="fa-solid fa-building"></i> Informações da Empresa</h2>
+                        
+                        <div class="info-item">
+                            <i class="fa-solid fa-envelope-open"></i>
+                            <div>
+                                <strong>E-mail de Suporte</strong>
+                                <p style="margin: 0;">placeholder@projeto.com.br</p>
+                                <p style="margin: 0; opacity: 0.8; font-size: 0.9rem;">Resposta em até 24 horas úteis</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <strong>Telefone</strong>
+                                <p style="margin: 0;">(11) 9999-9999</p>
+                                <p style="margin: 0; opacity: 0.8; font-size: 0.9rem;">Segunda a Sexta, 9h às 18h</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <strong>Endereço</strong>
+                                <p style="margin: 0;">Av. Exemplo, 1234 - Sala 567</p>
+                                <p style="margin: 0;">Centro - São Paulo/SP</p>
+                                <p style="margin: 0;">CEP: 01234-567</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <strong>Horário de Atendimento</strong>
+                                <p style="margin: 0;">Segunda a Sexta: 9h às 18h</p>
+                                <p style="margin: 0;">Sábado: 9h às 13h</p>
+                                <p style="margin: 0; opacity: 0.8;">Domingo e Feriados: Fechado</p>
+                            </div>
+                        </div>
+
+                        <!-- Mapa placeholder -->
+                        <div style="margin-top: 2rem; padding: 1rem; background-color: var(--cor-cinza-claro); border-radius: var(--borda-radius); text-align: center;">
+                            <i class="fa-solid fa-map-location" style="font-size: 3rem; color: var(--cor-secundaria); margin-bottom: 1rem;"></i>
+                            <p style="margin: 0;"><strong>Localização no Mapa</strong></p>
+                            <p style="margin: 0.5rem 0; opacity: 0.8; font-size: 0.9rem;">
+                                [Mapa interativo seria exibido aqui]
+                            </p>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div style="margin-top: 2rem;">
+                            <h3><i class="fa-solid fa-share-nodes"></i> Redes Sociais</h3>
+                            <div class="social-links" style="justify-content: flex-start;">
+                                <a href="#" aria-label="WhatsApp" style="background-color: #25D366;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="#" aria-label="Instagram" style="background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" aria-label="Twitter" style="background-color: #1DA1F2;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para validação e interação do formulário -->
+    <script>
+        // Elementos do formulário
+        const form = document.getElementById('contactForm');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const assuntoSelect = document.getElementById('assunto');
+        const mensagemTextarea = document.getElementById('mensagem');
+        const charCount = document.getElementById('charCount');
+        const draftStatus = document.getElementById('draft-status');
+
+        // Chave para localStorage
+        const DRAFT_KEY = 'contato_rascunho';
+
+        // Carregar rascunho salvo ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedDraft = localStorage.getItem(DRAFT_KEY);
+            if (savedDraft) {
+                try {
+                    const draft = JSON.parse(savedDraft);
+                    if (draft.mensagem) {
+                        mensagemTextarea.value = draft.mensagem;
+                        charCount.textContent = draft.mensagem.length;
+                        draftStatus.textContent = '✓ Rascunho recuperado';
+                        setTimeout(() => {
+                            draftStatus.textContent = '';
+                        }, 3000);
+                    }
+                    if (draft.nome) nomeInput.value = draft.nome;
+                    if (draft.email) emailInput.value = draft.email;
+                    if (draft.assunto) assuntoSelect.value = draft.assunto;
+                } catch (e) {
+                    console.error('Erro ao carregar rascunho:', e);
+                }
+            }
+        });
+
+        // Salvar rascunho automaticamente enquanto o usuário digita
+        function saveDraft() {
+            const draft = {
+                nome: nomeInput.value,
+                email: emailInput.value,
+                assunto: assuntoSelect.value,
+                mensagem: mensagemTextarea.value,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+            draftStatus.textContent = '✓ Salvo automaticamente';
+            setTimeout(() => {
+                draftStatus.textContent = '';
+            }, 2000);
+        }
+
+        // Contador de caracteres e salvamento automático
+        mensagemTextarea.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            saveDraft();
+        });
+
+        // Salvar rascunho ao alterar outros campos
+        nomeInput.addEventListener('input', saveDraft);
+        emailInput.addEventListener('input', saveDraft);
+        assuntoSelect.addEventListener('change', saveDraft);
+
+        // Funções de validação
+        function validateNome(nome) {
+            if (!nome || nome.trim().length === 0) {
+                return 'O nome é obrigatório.';
+            }
+            if (nome.trim().length < 3) {
+                return 'O nome deve ter pelo menos 3 caracteres.';
+            }
+            if (nome.trim().length > 100) {
+                return 'O nome deve ter no máximo 100 caracteres.';
+            }
+            if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(nome)) {
+                return 'O nome deve conter apenas letras e espaços.';
+            }
+            return null;
+        }
+
+        function validateEmail(email) {
+            if (!email || email.trim().length === 0) {
+                return 'O e-mail é obrigatório.';
+            }
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                return 'Por favor, insira um e-mail válido (exemplo: usuario@dominio.com).';
+            }
+            return null;
+        }
+
+        function validateAssunto(assunto) {
+            if (!assunto || assunto === '') {
+                return 'Por favor, selecione um assunto.';
+            }
+            return null;
+        }
+
+        function validateMensagem(mensagem) {
+            if (!mensagem || mensagem.trim().length === 0) {
+                return 'A mensagem é obrigatória.';
+            }
+            if (mensagem.trim().length < 10) {
+                return 'A mensagem deve ter pelo menos 10 caracteres.';
+            }
+            if (mensagem.trim().length > 1000) {
+                return 'A mensagem deve ter no máximo 1000 caracteres.';
+            }
+            return null;
+        }
+
+        // Exibir mensagem de erro
+        function showError(fieldId, message) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement && message) {
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                inputElement.style.borderColor = '#dc3545';
+            }
+        }
+
+        // Limpar mensagem de erro
+        function clearError(fieldId) {
+            const errorElement = document.getElementById(fieldId + '-error');
+            const inputElement = document.getElementById(fieldId);
+            
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.style.display = 'none';
+                inputElement.style.borderColor = '#ddd';
+            }
+        }
+
+        // Validação em tempo real
+        nomeInput.addEventListener('blur', function() {
+            const error = validateNome(this.value);
+            if (error) {
+                showError('nome', error);
+            } else {
+                clearError('nome');
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            const error = validateEmail(this.value);
+            if (error) {
+                showError('email', error);
+            } else {
+                clearError('email');
+            }
+        });
+
+        assuntoSelect.addEventListener('change', function() {
+            const error = validateAssunto(this.value);
+            if (error) {
+                showError('assunto', error);
+            } else {
+                clearError('assunto');
+            }
+        });
+
+        mensagemTextarea.addEventListener('blur', function() {
+            const error = validateMensagem(this.value);
+            if (error) {
+                showError('mensagem', error);
+            } else {
+                clearError('mensagem');
+            }
+        });
+
+        // Função para lidar com o envio do formulário
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Limpar todos os erros anteriores
+            clearError('nome');
+            clearError('email');
+            clearError('assunto');
+            clearError('mensagem');
+
+            // Validar todos os campos
+            const nomeError = validateNome(nomeInput.value);
+            const emailError = validateEmail(emailInput.value);
+            const assuntoError = validateAssunto(assuntoSelect.value);
+            const mensagemError = validateMensagem(mensagemTextarea.value);
+
+            // Se houver erros, exibi-los e impedir o envio
+            let hasErrors = false;
+
+            if (nomeError) {
+                showError('nome', nomeError);
+                hasErrors = true;
+            }
+            if (emailError) {
+                showError('email', emailError);
+                hasErrors = true;
+            }
+            if (assuntoError) {
+                showError('assunto', assuntoError);
+                hasErrors = true;
+            }
+            if (mensagemError) {
+                showError('mensagem', mensagemError);
+                hasErrors = true;
+            }
+
+            // Se houver erros, focar no primeiro campo com erro e parar
+            if (hasErrors) {
+                if (nomeError) nomeInput.focus();
+                else if (emailError) emailInput.focus();
+                else if (assuntoError) assuntoSelect.focus();
+                else if (mensagemError) mensagemTextarea.focus();
+                return false;
+            }
+
+            // Se passou em todas as validações, processar o envio
+            const formData = {
+                nome: nomeInput.value.trim(),
+                email: emailInput.value.trim(),
+                assunto: assuntoSelect.value,
+                mensagem: mensagemTextarea.value.trim(),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Aqui você normalmente enviaria os dados para um servidor
+            console.log('Dados do formulário validados:', formData);
+            
+            // Feedback visual para o usuário
+            alert('✓ Obrigado pelo seu contato!\n\nSua mensagem foi enviada com sucesso.\nResponderemos em breve no e-mail: ' + formData.email);
+            
+            // Limpar o rascunho do localStorage após envio bem-sucedido
+            localStorage.removeItem(DRAFT_KEY);
+            
+            // Limpar o formulário
+            form.reset();
+            charCount.textContent = '0';
+            draftStatus.textContent = '';
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <!-- Header -->
+   <!-- Header -->
+   <header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fa-solid fa-tooth"></i>
+                <a href="index.html">Turma do Bem</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="sobre.html" class="active"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                    <li><a href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                    <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                            <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                            <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                            <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                            <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-info-circle" style="color: var(--cor-primaria);"></i> Sobre o Projeto</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Conheça mais sobre nossa jornada, tecnologias utilizadas e o que planejamos para o futuro.
+                </p>
+            </section>
+
+            <!-- Seção 1: Ideia & Objetivo -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-lightbulb" style="color: var(--cor-secundaria);"></i> Ideia & Objetivo</h2>
+                    <p>
+                        O projeto foi desenvolvido como uma aplicação web, desenhada para otimizar e centralizar a operação e gestão interna da ONG Turma do Bem. 
+                        Nosso projeto atua como um hub para a coordenação de voluntários e pacientes, garantindo que o fluxo de trabalho seja eficiente e centralizado em uma só plataforma.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Seção 2: Tecnologias Utilizadas -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-code" style="color: var(--cor-secundaria);"></i> Tecnologias Utilizadas</h2>
+                    <ul class="styled-list">
+                        <li>
+                            <strong>HTML5</strong> - Estrutura semântica moderna para melhor acessibilidade e SEO, 
+                            utilizando as tags mais recentes e práticas recomendadas pelo W3C.
+                        </li>
+                        <li>
+                            <strong>CSS3</strong> - Estilização avançada com variáveis CSS, Grid Layout, Flexbox e 
+                            animações suaves para criar uma experiência visual impressionante.
+                        </li>
+                    </ul>
+                    <div style="margin-top: 2rem; padding: 1.5rem; background-color: var(--cor-cinza-claro); border-radius: var(--borda-radius);">
+                        <p style="margin: 0;">
+                            <i class="fa-solid fa-sparkles" style="color: var(--cor-primaria);"></i>
+                            <strong>Nota:</strong> Todas as tecnologias usadas hoje fazem parte do protótipo, novas técnologias serão incluidas conforme o desenvolvimento do projeto.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção 3: Roadmap -->
+            <section class="section">
+                <div class="card">
+                    <h2><i class="fa-solid fa-road" style="color: var(--cor-secundaria);"></i> Roadmap do Projeto</h2>
+                    <p>
+                        Nosso projeto segue um roadmap em fases, buscando manter a organização para um projeto limpo.
+                    </p>
+                    <ol class="numbered-list">
+                        <li>
+                            <strong>Fase 1 - Estrutura</strong>
+                            <p>Foco em estabelecer a estrutura fundamental do projeto e sua identidade visual, a arquitetura dos diferentes módulos e o planejamento de como fazer a integração dos mesmos.</p>
+                        </li>
+                        <li>
+                            <strong>Fase 2 - Criação dos módulos</strong>
+                            <p>Concentração no desenvolvimento dos módulos centrais responsáveis pelas features da aplicação. Isso envolve a estrutura de cadastro (Pacientes, Dentistas, Funcionários da ONG), 
+                                o esqueleto do Módulo de Relatórios, Centro de Comunicações e também na criação da estrutura lógica e da interface de usuário do Módulo de Recomendação (Match), definindo os parâmetros iniciais (prioridade, disponibilidade e região)
+                                 que serão usados para sugerir o voluntário mais adequado ao paciente.
+                                . O objetivo é preparar os dados e as interfaces para a próxima etapa.</p>
+                        </li>
+                        <li>
+                            <strong>Fase 3 - Integrações e testes</strong>
+                            <p>Foco na integração dos módulos desenvolvidos. 
+                                Esta fase conecta as diferentes estruturas ao banco de dados e ativa a troca de informações entre os módulos.
+                                 Após a integração, a prioridade é testar o programa para garantir que ele funcione corretamente.</p>
+                        </li>
+
+                        <li>
+                            <strong>Fase 4 - Expansão e Manutenção</strong>
+                            <p>Implementação de novas funcionalidades, entre outras alterações baseadas no feedback da ONG, seguida por uma fase de testes destas mesmas mudanças.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+

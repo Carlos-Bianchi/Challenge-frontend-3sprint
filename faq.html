@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Turma do Bem</title>
+    
+    <!-- Font Awesome Local -->
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    
+    <!-- CSS customizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+       <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fa-solid fa-tooth"></i>
+                    <a href="index.html">Turma do Bem</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-circle-info"></i> Sobre</a></li>
+                        <li><a href="faq.html" class="active"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle"><i class="fa-solid fa-cubes"></i> Módulos <i class="fa-solid fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="sistema-match.html"><i class="fa-solid fa-handshake"></i> Match</a></li>
+                                <li><a href="comunicacao.html"><i class="fa-solid fa-comments"></i> Comunicação</a></li>
+                                <li><a href="usuarios.html"><i class="fa-solid fa-users-gear"></i> Usuários</a></li>
+                                <li><a href="dashboard.html"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                                <li><a href="relatorios.html"><i class="fa-solid fa-file-medical"></i> Relatórios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-users"></i> Integrantes</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Page Title -->
+            <section class="section text-center fade-in">
+                <h1><i class="fa-solid fa-circle-question" style="color: var(--cor-primaria);"></i> Perguntas Frequentes</h1>
+                <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                    Encontre respostas para as dúvidas mais comuns sobre nosso projeto. 
+                    Clique em qualquer pergunta para ver a resposta detalhada.
+                </p>
+            </section>
+
+            <!-- FAQ Accordion -->
+            <section class="section">
+                <div class="faq-container">
+                    <!-- Pergunta 1 -->
+                    <div class="faq-item" data-faq-id="faq-1">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><i class="fa-solid fa-code"></i> O que é este projeto e qual seu principal objetivo?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Nosso projeto visa auxiliar a ONG Turma do Bem na gestão de voluntários e pacientes através de uma aplicação web responsável por manter e organizar os dados (Desde informações sobre os individuos, até as consultas e triagens), 
+                                usar esses dados para auxiliar a operação da ONG, centralizar e organizar os meios de comunicação.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 2 -->
+                    <div class="faq-item" data-faq-id="faq-2">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><i class="fa-solid fa-laptop-code"></i> Quais tecnologias foram utilizadas no desenvolvimento?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                O projeto foi construído utilizando as seguintes tecnologias:
+                            </p>
+                            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                <li><strong>HTML5</strong> - Para estruturação semântica do conteúdo</li>
+                                <li><strong>CSS3</strong> - Estilização da plataforma web</li>
+                                <li><strong>Python</strong> - Lógica geral do backend</li>
+                                <li><strong>Flask</strong> - Framework para auxiliar o python</li>
+                                <li><strong>JavaScript</strong> - A ser implementado para dar responsividade à plataforma</li>
+                                <li><strong>MySQL</strong> - A ser implementado para organização dos dados</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 3 -->
+                    <div class="faq-item" data-faq-id="faq-3">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><i class="fa-solid fa-mobile-screen"></i> O projeto é responsivo e funciona em dispositivos móveis?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                <strong>Sim!</strong> Optamos por já incluir responsividade para dispositivos Mobile, fazendo com que o projeto se adeque a partir de uma largura de 768px.
+                            </p>
+                            <p>
+                                Utilizamos técnicas de CSS como:
+                            </p>
+                            <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                                <li>Grid Layout e Flexbox para layouts fluidos</li>
+                                <li>Media queries para adaptação em diferentes tamanhos de tela</li>
+                                <li>Unidades flexivas como "rem, em, %.."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 6 -->
+                    <div class="faq-item" data-faq-id="faq-4">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><i class="fa-solid fa-shield-check"></i> O projeto segue padrões de acessibilidade web?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Sim, a acessibilidade é uma das prioridades em nosso projeto. Implementamos 
+                                práticas para garantir que o conteúdo seja acessível para pessoas com deficiências.
+                            </p>
+                            <p>
+                                Medidas de acessibilidade implementadas:
+                            </p>
+                            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                <li>Estrutura HTML semântica com tags apropriadas</li>
+                                <li>Atributos ARIA quando necessário</li>
+                                <li>Contraste de cores adequado (WCAG AA)</li>
+                                <li>Navegação por teclado funcional</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pergunta 7 -->
+                    <div class="faq-item" data-faq-id="faq-5">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><i class="fa-solid fa-rocket-launch"></i> Quais são os próximos passos e futuras implementações?</span>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>
+                                Nosso projeto segue um roadmap estruturado em fases, com foco em criar uma solução completa 
+                                para a gestão interna da ONG Turma do Bem. Estamos comprometidos com a entrega de uma 
+                                plataforma robusta e eficiente.
+                            </p>
+                            <p>
+                                <strong>Roadmap de Desenvolvimento:</strong>
+                            </p>
+                            <ol style="margin-left: 2rem; margin-top: 1rem;">
+                                <li><strong>Fase 1 - Estrutura (Em andamento):</strong> Estabelecimento da arquitetura base, 
+                                identidade visual e planejamento de integração entre módulos</li>
+                                <li><strong>Fase 2 - Criação dos Módulos:</strong> Desenvolvimento dos módulos centrais incluindo 
+                                cadastro de pacientes/dentistas/funcionários, módulo de relatórios, centro de comunicações e 
+                                sistema de recomendação (Match) com parâmetros de prioridade, disponibilidade e região</li>
+                                <li><strong>Fase 3 - Integrações e Testes:</strong> Conexão dos módulos ao banco de dados, 
+                                ativação da comunicação entre módulos e testes completos de funcionalidade</li>
+                                <li><strong>Fase 4 - Expansão e Manutenção:</strong> Implementação de novas funcionalidades 
+                                baseadas no feedback da ONG e testes contínuos</li>
+                            </ol>
+                            <p style="margin-top: 1.5rem;">
+                                <strong>Funcionalidades Técnicas Planejadas:</strong>
+                            </p>
+                            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                                <li><strong>Modo Escuro:</strong> Tema alternativo para reduzir fadiga ocular e melhor experiência noturna</li>
+                                <li><strong>Otimização de Performance:</strong> Lazy loading, minificação de código e cache inteligente</li>
+                                <li><strong>Sistema de Match Inteligente:</strong> Algoritmo para conectar voluntários e pacientes de forma eficiente, com uma dashboard atraente</li>
+                                <li><strong>Repositórios Locais:</strong> Armazenamento de informações local para garantir integridade dos dados</li>
+                                <li><strong>Integração com APIs:</strong> Conexão com sistemas externos para ampliar funcionalidades</li>
+                                <li><strong>Backup Automatizado:</strong> Sistema de segurança para proteção dos dados com redundância local e em nuvem</li>
+                            </ul>
+                            <p style="margin-top: 1rem;">
+                                Acompanhe nosso progresso e contribua com sugestões para tornar este projeto 
+                                ainda mais eficiente para a ONG Turma do Bem!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Help Section -->
+            <section class="section">
+                <div class="card text-center" style="background: linear-gradient(135deg, var(--cor-secundaria), #2a9d3f);">
+                    <i class="fa-solid fa-headset" style="font-size: 3rem; color: var(--cor-primaria); margin-bottom: 1rem;"></i>
+                    <h2 style="color: var(--cor-branco);">Ainda tem dúvidas?</h2>
+                    <p style="color: var(--cor-branco); opacity: 0.95; margin-bottom: 2rem;">
+                        Não encontrou a resposta que procurava? Nossa equipe está pronta para ajudar! 
+                        Entre em contato conosco e responderemos o mais breve possível.
+                    </p>
+                    <a href="contato.html" class="btn btn-primary">
+                        <i class="fa-solid fa-message-dots"></i> Fale Conosco
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-tooth"></i> Turma do Bem</h3>
+                    <p>Sistema de gestão desenvolvido para otimizar as operações da ONG e conectar voluntários a quem mais precisa de cuidados odontológicos.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-link"></i> Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-angle-right"></i> Sobre</a></li>
+                        <li><a href="faq.html"><i class="fa-solid fa-angle-right"></i> FAQ</a></li>
+                        <li><a href="contato.html"><i class="fa-solid fa-angle-right"></i> Contato</a></li>
+                        <li><a href="integrantes.html"><i class="fa-solid fa-angle-right"></i> Integrantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-cubes"></i> Módulos</h3>
+                    <ul>
+                        <li><a href="sistema-match.html"><i class="fa-solid fa-angle-right"></i> Match</a></li>
+                        <li><a href="comunicacao.html"><i class="fa-solid fa-angle-right"></i> Comunicação</a></li>
+                        <li><a href="usuarios.html"><i class="fa-solid fa-angle-right"></i> Usuários</a></li>
+                        <li><a href="dashboard.html"><i class="fa-solid fa-angle-right"></i> Dashboard</a></li>
+                        <li><a href="relatorios.html"><i class="fa-solid fa-angle-right"></i> Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fa-solid fa-envelope"></i> Contato</h3>
+                    <p><i class="fa-solid fa-at"></i> contato@projeto.com.br</p>
+                    <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+                    <p><i class="fa-solid fa-location-dot"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Turma do Bem - Sistema de Gestão. Todos os direitos reservados. | Desenvolvido com <i class="fa-solid fa-heart" style="color: var(--cor-primaria);"></i> para transformar sorrisos</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para o funcionamento do accordion com sessionStorage -->
+    <script>
+        // Chave para sessionStorage
+        const FAQ_SESSION_KEY = 'faq_aberta';
+
+        // Carregar FAQ aberta ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedFaqId = sessionStorage.getItem(FAQ_SESSION_KEY);
+            
+            if (savedFaqId) {
+                // Encontrar o item do FAQ salvo
+                const faqItem = document.querySelector(`[data-faq-id="${savedFaqId}"]`);
+                
+                if (faqItem) {
+                    const button = faqItem.querySelector('.faq-question');
+                    const answer = faqItem.querySelector('.faq-answer');
+                    
+                    // Abrir o FAQ salvo
+                    if (button && answer) {
+                        button.classList.add('active');
+                        answer.classList.add('active');
+                        
+                        // Rolar suavemente até o FAQ aberto após um pequeno delay
+                        setTimeout(() => {
+                            faqItem.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'center' 
+                            });
+                        }, 100);
+                    }
+                }
+            }
+        });
+
+        // Função para alternar FAQ
+        function toggleFAQ(button) {
+            const faqItem = button.closest('.faq-item');
+            const faqId = faqItem.getAttribute('data-faq-id');
+            const answer = button.nextElementSibling;
+            const isActive = button.classList.contains('active');
+            
+            // Fecha todos os outros acordeões
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.classList.remove('active');
+                btn.nextElementSibling.classList.remove('active');
+            });
+            
+            // Se não estava ativo, abre este acordeão
+            if (!isActive) {
+                button.classList.add('active');
+                answer.classList.add('active');
+                
+                // Salvar no sessionStorage qual FAQ está aberta
+                sessionStorage.setItem(FAQ_SESSION_KEY, faqId);
+            } else {
+                // Se estava ativo e foi fechado, remover do sessionStorage
+                sessionStorage.removeItem(FAQ_SESSION_KEY);
+            }
+        }
+
+        // Limpar sessionStorage ao sair da página (opcional)
+        // Comentado para manter o estado mesmo ao navegar entre páginas
+        /*
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.removeItem(FAQ_SESSION_KEY);
+        });
+        */
+    </script>
+</body>
+</html>
+
+
