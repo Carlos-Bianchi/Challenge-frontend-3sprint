@@ -139,7 +139,7 @@ const Match = () => {
         <div className="mt-4 flex justify-end">
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-2 rounded transition-colors duration-150"
+            className="bg-turma-green hover:bg-turma-green/90 text-white font-medium px-6 py-2 rounded transition-colors duration-300"
           >
             Buscar
           </button>
@@ -150,12 +150,12 @@ const Match = () => {
         {volunteers.map((volunteer) => (
           <div
             key={volunteer.id}
-            className="bg-white rounded-lg shadow p-4 border-l-4 border-green-500 hover:shadow-lg transition-shadow duration-150"
+            className="bg-white rounded-lg shadow p-4 border-l-4 border-turma-green hover:shadow-lg transition-shadow duration-300"
           >
             <div className="flex items-start justify-between">
               <div>
                 <h3 className="font-semibold text-gray-800">{volunteer.name}</h3>
-                <p className="text-sm text-green-600 font-medium mt-1">{volunteer.specialty}</p>
+                <p className="text-sm text-turma-green font-medium mt-1">{volunteer.specialty}</p>
               </div>
               <div className="flex items-center gap-1 bg-yellow-50 px-2 py-1 rounded">
                 {renderStars(volunteer.rating)}
@@ -181,7 +181,7 @@ const Match = () => {
 
             <button
               onClick={() => handleSolicitarMatch(volunteer.id)}
-              className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded transition-colors duration-150"
+              className="mt-4 w-full bg-turma-green hover:bg-turma-green/90 text-white font-medium py-2 rounded transition-colors duration-300"
             >
               Solicitar Match
             </button>

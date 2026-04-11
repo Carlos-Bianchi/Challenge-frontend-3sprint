@@ -56,7 +56,7 @@ const Solucao = () => {
                 <Link
                   key={card.path}
                   to={card.path}
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md transition-colors"
+                  className="text-sm font-medium text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md transition-colors duration-300"
                 >
                   {card.title}
                 </Link>
@@ -83,7 +83,7 @@ const Solucao = () => {
                 <div
                   key={card.path}
                   onClick={() => handleCardClick(card.path)}
-                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition-all cursor-pointer border border-gray-200"
+                  className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer border border-gray-200"
                 >
                   <h3 className="text-xl font-bold text-gray-800 mb-2">
                     {card.title}
