@@ -41,7 +41,7 @@ const Comunicacao = () => {
             Mensagens e notificações
           </p>
         </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-150 flex items-center gap-2">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300 flex items-center gap-2">
           <span>+</span> Nova Mensagem
         </button>
       </div>
@@ -57,7 +57,7 @@ const Comunicacao = () => {
                 <button
                   key={folder.id}
                   onClick={() => setActiveFolder(folder.id)}
-                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors duration-150 ${
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-colors duration-300 ${
                     activeFolder === folder.id
                       ? 'bg-blue-50 text-blue-700 font-medium'
                       : 'text-gray-700 hover:bg-gray-100'
@@ -75,7 +75,7 @@ const Comunicacao = () => {
               <div
                 key={message.id}
                 onClick={() => setSelectedMessage(message)}
-                className={`p-4 cursor-pointer transition-colors duration-150 border-l-4 ${
+                className={`p-4 cursor-pointer transition-colors duration-300 border-l-4 ${
                   selectedMessage?.id === message.id
                     ? 'bg-blue-50 border-l-blue-500'
                     : 'hover:bg-gray-50 border-l-transparent'
@@ -124,13 +124,13 @@ const Comunicacao = () => {
                 {selectedMessage.content}
               </p>
               <div className="mt-6 pt-4 border-t border-gray-200 flex gap-3">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-150">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300">
                   Responder
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-150">
+                <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-300">
                   Encaminhar
                 </button>
-                <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-150">
+                <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-medium transition-colors duration-300">
                   Arquivar
                 </button>
               </div>
