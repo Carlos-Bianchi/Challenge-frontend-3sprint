@@ -3,6 +3,7 @@ import Solucao from '../pages/Solucao'
 import Match from '../pages/solucao/Match'
 import Comunicacao from '../pages/solucao/Comunicacao'
 import Usuarios from '../pages/solucao/Usuarios'
+import UsuarioDetalhes from '../pages/solucao/UsuarioDetalhes'
 import DashboardView from '../pages/solucao/DashboardView'
 import Relatorios from '../pages/solucao/Relatorios'
 
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path="match" element={<Match />} />
         <Route path="comunicacao" element={<Comunicacao />} />
         <Route path="usuarios" element={<Usuarios />} />
+        <Route path="usuarios/:id" element={<UsuarioDetalhes />} />
         <Route path="dashboard" element={<DashboardView />} />
         <Route path="relatorios" element={<Relatorios />} />
       </Route>
