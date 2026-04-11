@@ -1,25 +1,24 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Layout from '../components/Layout'
-import Home from '../pages/Home'
-import Sobre from '../pages/Sobre'
-import FAQ from '../pages/FAQ'
-import Contato from '../pages/Contato'
-import Integrantes from '../pages/Integrantes'
+import { Routes, Route } from 'react-router-dom'
 import Solucao from '../pages/Solucao'
+import Match from '../pages/solucao/Match'
+import Comunicacao from '../pages/solucao/Comunicacao'
+import Usuarios from '../pages/solucao/Usuarios'
+import DashboardView from '../pages/solucao/DashboardView'
+import Relatorios from '../pages/solucao/Relatorios'
 
-export default function AppRoutes() {
+const AppRoutes = () => {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/integrantes" element={<Integrantes />} />
-          <Route path="/solucao" element={<Solucao />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<div className="p-6">Home Page</div>} />
+      <Route path="/solucao" element={<Solucao />}>
+        <Route path="match" element={<Match />} />
+        <Route path="comunicacao" element={<Comunicacao />} />
+        <Route path="usuarios" element={<Usuarios />} />
+        <Route path="dashboard" element={<DashboardView />} />
+        <Route path="relatorios" element={<Relatorios />} />
+      </Route>
+    </Routes>
   )
 }
+
+export default AppRoutes
