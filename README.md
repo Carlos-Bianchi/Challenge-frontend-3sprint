@@ -1,71 +1,111 @@
-# Challenge Frontend - Sprint 03
+# Challenge Frontend - Sprint 03 - React + Vite + TypeScript
 
-Sistema de Gestão desenvolvido para a ONG Turma do Bem, migrando de HTML/CSS estático para uma SPA moderna com React.
+## Descrição do Projeto
 
-## Sobre o Projeto
+Este projeto representa a migração completa de uma aplicação web estática (HTML/CSS) para uma Single Page Application (SPA) moderna utilizando React, Vite e TypeScript. A aplicação gerencia o ecossistema da ONG **Turma do Bem**, conectando pacientes que precisam de atendimento odontológico com voluntários dispostos a ajudar.
 
-Esse projeto faz parte da disciplina de Front-End Design Engineering. A ideia é pegar tudo que fizemos nas sprints anteriores (páginas estáticas) e transformar numa aplicação moderna usando React, Vite e TypeScript.
+A plataforma permite:
+- **Match entre Pacientes e Voluntários**: Sistema de conexão inteligente baseado em localização, especialidade e disponibilidade
+- **Gestão de Usuários**: Cadastro e administração de pacientes e voluntários
+- **Comunicação**: Sistema de mensagens integrado para coordenação entre as partes
+- **Dashboard Analítico**: Visualização de métricas e estatísticas em tempo real
+- **Relatórios**: Upload e gestão de documentação médica e laudos
 
-A aplicação é um sistema de gestão para a ONG Turma do Bem, com foco em conectar pessoas que precisam de ajuda odontológica com voluntários dispostos a atender. O sistema inclui módulos de match entre pacientes e dentistas, comunicação, gestão de usuários, dashboard e relatórios.
+## Tecnologias Utilizadas
 
-## Tecnologias Usadas
-
-- **React** - Biblioteca principal pra construir a interface
-- **Vite** - Build tool rápida (muito melhor que Create React App)
-- **TypeScript** - Tipagem estática pra evitar bugs bobos
-- **TailwindCSS** - CSS utilitário, muito prático
-- **React Router DOM** - Navegação entre páginas sem reload
-- **React Hook Form** - Validação e controle de formulários
+- **React 19** - Biblioteca para construção de interfaces
+- **Vite** - Build tool para desenvolvimento rápido
+- **TypeScript** - Tipagem estática para código mais seguro
+- **TailwindCSS** - Framework CSS utilitário para estilização
+- **React Router DOM** - Roteamento para SPA
+- **React Hook Form** - Gerenciamento de formulários com validação
 
 ## Estrutura de Pastas
 
 ```
-src/
-├── components/     # Componentes reutilizáveis (Header, Footer, Cards, etc.)
-├── components/ui/  # Componentes de UI genéricos (Button, Card, Accordion)
-├── pages/          # Páginas da aplicação
-├── pages/solucao/  # Sub-páginas do módulo Solução
-├── routes/         # Configuração de rotas
-└── assets/         # Imagens e arquivos estáticos
+/src
+├── /components          # Componentes reutilizáveis
+│   ├── /ui             # Componentes de UI (Card, etc.)
+│   └── Header.tsx      # Header com navegação responsiva
+├── /pages              # Páginas da aplicação
+│   ├── /solucao        # Módulos do sistema
+│   │   ├── Match.tsx
+│   │   ├── Comunicacao.tsx
+│   │   ├── Usuarios.tsx
+│   │   ├── UsuarioDetalhes.tsx
+│   │   ├── DashboardView.tsx
+│   │   └── Relatorios.tsx
+│   └── Solucao.tsx     # Dashboard central
+├── /routes             # Configuração de rotas
+│   └── AppRoutes.tsx
+├── App.tsx             # Componente principal
+└── main.tsx            # Entry point
 ```
 
-## Como Rodar Localmente
+## Como Executar Localmente
 
-1. Clone o repositório
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### Instalação
+
+1. Clone o repositório:
+```bash
+git clone [URL_DO_REPOSITORIO]
+cd Challenge-frontend-3sprint
+```
+
 2. Instale as dependências:
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
+
 3. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-4. Abra no navegador: `http://localhost:5173`
+```bash
+npm run dev
+```
 
-## Páginas do Sistema
+4. Acesse a aplicação em: `http://localhost:5173`
 
-- **Home** - Apresentação do sistema e funcionalidades principais
-- **Sobre** - Informações sobre a ONG Turma do Bem
-- **FAQ** - Perguntas frequentes com sistema de accordion
-- **Contato** - Formulário de contato com validação
-- **Integrantes** - Quem desenvolveu o projeto
-- **Solução** - Módulos do sistema: Match, Comunicação, Usuários, Dashboard, Relatórios
+### Build para Produção
 
-## Time de Desenvolvimento
+```bash
+npm run build
+```
+
+O build será gerado na pasta `dist/`.
+
+## Integrantes do Grupo
 
 | Nome | RM | Turma | GitHub | LinkedIn |
-|------|----|-------|--------|----------|
-| Caio Vinicius Silva Araujo | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-| Carlos Aurelio Tolosa Bianchi | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-| Vinicius Morrone Lustosa | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-
-*Preenche os dados da turma e RM depois*
+|------|-----|-------|--------|----------|
+| Caio Vinicius Silva Araujo | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
+| Carlos Aurelio Tolosa Bianchi | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
+| Vinicius Morrone Lustosa | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
 
 ## Links Importantes
 
-- **Repositório GitHub:** [INSERIR LINK AQUI]
-- **Vídeo no YouTube:** [INSERIR LINK AQUI]
+- **Link do Repositório GitHub**: [INSERIR LINK AQUI]
+- **Link do Vídeo no Youtube**: [INSERIR LINK AQUI]
+
+## Observações para Entrega
+
+- **NÃO incluir** a pasta `node_modules` no arquivo .zip final
+- **NÃO incluir** a pasta `.git` no arquivo .zip final
+- Incluir apenas o código fonte, README.md e arquivos de configuração
+- O arquivo .zip deve conter: pasta `src/`, `index.html`, `package.json`, `tsconfig.json`, `tailwind.config.js`, `README.md`, e outros arquivos de configuração necessários
+
+## Funcionalidades Implementadas
+
+✅ **Navegação SPA**: React Router DOM com rotas aninhadas
+✅ **Roteamento Dinâmico**: Uso de `useParams` para detalhes de usuários
+✅ **Gerenciamento de Estado**: `useState` e `useEffect` em múltiplos componentes
+✅ **Formulários**: React Hook Form com validações TypeScript
+✅ **Responsividade**: Layout adaptável para Mobile, Tablet e Desktop
+✅ **Design System**: Cores da ONG Turma do Bem (Amarelo #FFB700, Verde #1E7E34)
+✅ **Transições Suaves**: Animações em todos os elementos interativos
 
 ---
 
-Projeto desenvolvido com ❤️ para transformar sorrisos
+**Projeto desenvolvido para o Challenge Frontend Sprint 03 - Turma do Bem**
