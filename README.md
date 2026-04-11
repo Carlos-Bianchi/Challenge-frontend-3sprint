@@ -52,20 +52,7 @@ src/
 - **Solução** - Módulos do sistema: Match, Comunicação, Usuários, Dashboard, Relatórios
 
 ## Time de Desenvolvimento
+| Caio Vinicius Silva Araujo 
+| Carlos Aurelio Tolosa Bianchi 
+| Vinicius Morrone Lustosa
 
-| Nome | RM | Turma | GitHub | LinkedIn |
-|------|----|-------|--------|----------|
-| Caio Vinicius Silva Araujo | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-| Carlos Aurelio Tolosa Bianchi | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-| Vinicius Morrone Lustosa | - | - | [github](https://github.com) | [linkedin](https://linkedin.com) |
-
-*Preenche os dados da turma e RM depois*
-
-## Links Importantes
-
-- **Repositório GitHub:** [INSERIR LINK AQUI]
-- **Vídeo no YouTube:** [INSERIR LINK AQUI]
-
----
-
-Projeto desenvolvido com ❤️ para transformar sorrisos
