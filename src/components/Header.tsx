@@ -17,7 +17,8 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-turma-green">Turma do Bem</span>
+            <span className="text-2xl font-bold text-turma-green">Turma</span>
+            <span className="text-2xl font-bold text-turma-yellow">Conecta</span>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-4">
@@ -65,8 +66,13 @@ const Header = () => {
           </button>
         </div>
 
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+        <div
+          id="mobile-menu"
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="py-4 border-t border-gray-200 bg-white shadow-lg -mx-4 px-4">
             <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <Link
@@ -84,7 +90,7 @@ const Header = () => {
               ))}
             </nav>
           </div>
-        )}
+        </div>
       </div>
     </header>
   )
