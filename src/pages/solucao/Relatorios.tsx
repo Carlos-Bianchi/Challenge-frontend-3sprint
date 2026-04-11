@@ -23,9 +23,9 @@ const Relatorios = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'concluido':
-        return 'bg-green-100 text-green-800'
+        return 'bg-turma-green/10 text-turma-green'
       case 'pendente':
-        return 'bg-yellow-100 text-yellow-800'
+        return 'bg-turma-yellow/10 text-turma-yellow'
       case 'em_analise':
         return 'bg-blue-100 text-blue-800'
       default:
@@ -86,7 +86,7 @@ const Relatorios = () => {
         <p className="mt-2 text-xs text-gray-400">
           Suporta: PDF, JPG, PNG (max. 10MB)
         </p>
-        <button className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+        <button className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">
           Selecionar Arquivo
         </button>
       </div>
@@ -124,7 +124,7 @@ const Relatorios = () => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {mockReports.map((report) => (
-                  <tr key={report.id} className="hover:bg-gray-50 transition-colors">
+                  <tr key={report.id} className="hover:bg-gray-50 transition-colors duration-300">
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                       {report.date}
                     </td>
@@ -161,7 +161,7 @@ const Relatorios = () => {
 
       {/* Stats Cards */}
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-green-500">
+        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-turma-green transition-all duration-300 hover:shadow-md">
           <p className="text-sm font-medium text-gray-500">Concluídos</p>
           <p className="text-2xl font-bold text-gray-800 mt-1">
             {mockReports.filter((r) => r.status === 'concluido').length}
@@ -173,7 +173,7 @@ const Relatorios = () => {
             {mockReports.filter((r) => r.status === 'em_analise').length}
           </p>
         </div>
-        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-yellow-500">
+        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-turma-yellow transition-all duration-300 hover:shadow-md">
           <p className="text-sm font-medium text-gray-500">Pendentes</p>
           <p className="text-2xl font-bold text-gray-800 mt-1">
             {mockReports.filter((r) => r.status === 'pendente').length}
