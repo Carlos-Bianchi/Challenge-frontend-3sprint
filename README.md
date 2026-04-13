@@ -80,13 +80,12 @@ O build será gerado na pasta `dist/`.
 
 | Nome | RM | Turma | GitHub | LinkedIn |
 |------|-----|-------|--------|----------|
-| Caio Vinicius Silva Araujo | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
-| Carlos Aurelio Tolosa Bianchi | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
-| Vinicius Morrone Lustosa | [INSERIR RM] | 3SIP | [INSERIR LINK GITHUB] | [INSERIR LINK LINKEDIN] |
+| Carlos Aurelio Tolosa Bianchi | [RM 567897] | 1tdsps | [https://github.com/Carlos-Bianchi] | [https://www.linkedin.com/in/carlos-bianchi-6608a3272/] |
+| Vinicius Morrone Lustosa | [RM 566884] | 1tdsps | [https://github.com/viniciusmorrone] | [https://www.linkedin.com/in/vin%C3%ADcius-morrone-lustosa/] |
 
 ## Links Importantes
 
-- **Link do Repositório GitHub**: [INSERIR LINK AQUI]
+- **Link do Repositório GitHub**: [https://github.com/Carlos-Bianchi/Challenge-frontend-3sprint]
 - **Link do Vídeo no Youtube**: [INSERIR LINK AQUI]
 
 ## Observações para Entrega
