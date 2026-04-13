@@ -45,5 +45,5 @@ Exemplo de notificação:
 **2026-04-11:** Removido kanji "援助" do subject de exemplo, substituído por "ajuda" em português (linha 66)
 
 ## Backlinks
-- [Dashboard](./dashboard.md)
+- [Dashboard](./dashboard-view.md)
 - [Index](../index.md)

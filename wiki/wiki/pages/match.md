@@ -29,5 +29,5 @@ Página de matching entre pacientes e dentistas voluntários.
 **2026-04-11:** Adicionado `whitespace-nowrap` no texto "12 Pendentes" para evitar quebra de linha
 
 ## Backlinks
-- [Dashboard](./dashboard.md)
+- [Dashboard](./dashboard-view.md)
 - [Index](../index.md)

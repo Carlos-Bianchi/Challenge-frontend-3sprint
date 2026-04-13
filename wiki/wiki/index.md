@@ -15,13 +15,11 @@
 ### Módulos do Sistema
 - [Match - Sistema de Matching](./pages/match.md)
 - [Comunicação - Sistema de Mensagens](./pages/comunicacao.md)
-- [Usuários - Gestão de Usuários](./pages/usuarios.md)
 - [DashboardView - Painel de Controle](./pages/dashboard-view.md)
-- [Relatórios - Upload de Documentos](./pages/relatorios.md)
 
-### Componentes
-- [Header - Navegação](./pages/header.md)
-- [Footer - Rodapé](./pages/footer.md)
+### Páginas Adicionais (Wiki Principal)
+Veja a [wiki principal](../../wiki/wiki/index.md) para documentação completa de:
+- Usuários, Relatórios, Header, Footer, e outros módulos
 
 ---
 
