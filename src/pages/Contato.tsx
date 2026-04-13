@@ -1,194 +1,296 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import Card from '../components/ui/Card'
-import Button from '../components/ui/Button'
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 
-interface ContactFormData {
-  name: string
+interface FormData {
+  nome: string
   email: string
-  subject: string
-  message: string
+  telefone: string
+  assunto: string
+  mensagem: string
 }
 
-export default function Contato() {
-  const [submitted, setSubmitted] = useState(false)
-
+const Contato = () => {
   const {
     register,
     handleSubmit,
+    formState: { errors, isSubmitting },
     reset,
-    formState: { errors },
-  } = useForm<ContactFormData>()
+    watch,
+  } = useForm<FormData>({
+    mode: 'onBlur',
+    defaultValues: {
+      nome: '',
+      email: '',
+      telefone: '',
+      assunto: '',
+      mensagem: '',
+    },
+  })
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log('Formulário enviado:', data)
-    setSubmitted(true)
+  // Watch form values to show success state
+  const formValues = watch()
+  const isSubmitted = formValues.nome === '' && 
+                      formValues.email === '' && 
+                      formValues.telefone === '' && 
+                      formValues.assunto === '' && 
+                      formValues.mensagem === '' &&
+                      !isSubmitting
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: 'Email',
+      value: 'contato@turmadobem.org.br',
+      link: 'mailto:contato@turmadobem.org.br',
+    },
+    {
+      icon: Phone,
+      title: 'Telefone',
+      value: '(11) 99999-9999',
+      link: 'tel:+5511999999999',
+    },
+    {
+      icon: MapPin,
+      title: 'Endereço',
+      value: 'Av. Paulista, 1000 - São Paulo, SP',
+      link: 'https://maps.google.com/?q=Av.+Paulista,+1000+Sao+Paulo',
+    },
+  ]
+
+  const subjectOptions = [
+    'Quero ser voluntário',
+    'Preciso de atendimento odontológico',
+    'Quero fazer uma doação',
+    'Parceria corporativa',
+    'Dúvidas sobre o sistema',
+    'Outros assuntos',
+  ]
+
+  const onSubmit = async (data: FormData) => {
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+    console.log('Form data submitted:', data)
     reset()
-    setTimeout(() => setSubmitted(false), 5000)
   }
 
-  const inputClass =
-    'w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1E7E34] text-gray-800 text-sm bg-white'
-
-  const labelClass = 'block text-sm font-semibold text-gray-700 mb-1'
+  const handleReset = () => {
+    reset()
+  }
 
   return (
-    <div className="bg-gray-50 py-12 px-4">
-      <div className="max-w-5xl mx-auto space-y-10">
-
-        {/* Título */}
-        <section className="text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            ✉️ Entre em Contato
+    <div className="min-h-screen bg-surface">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-turma-green via-turma-green-light to-turma-green py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+            Fale Conosco
           </h1>
-          <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Adoraríamos ouvir de você! Envie suas dúvidas, sugestões ou feedback.
-            Nossa equipe responderá o mais breve possível.
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
+            Estamos prontos para ajudar você. Entre em contato pela melhor forma conveniente.
           </p>
-        </section>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Contact Info Cards */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-on-background">Informações de Contato</h2>
+            <div className="space-y-4">
+              {contactInfo.map((info) => {
+                const Icon = info.icon
+                return (
+                  <a
+                    key={info.title}
+                    href={info.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-5 bg-white rounded-xl border border-on-background/10 hover:border-turma-green hover:shadow-lg transition-all duration-300 group"
+                  >
+                    <div className="w-12 h-12 bg-turma-green/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-turma-green transition-colors duration-300">
+                      <Icon className="w-6 h-6 text-turma-green group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div>
+                      <span className="block text-sm font-medium text-on-background/50 mb-1">{info.title}</span>
+                      <span className="font-semibold text-on-background">{info.value}</span>
+                    </div>
+                  </a>
+                )
+              })}
+            </div>
 
-          {/* Formulário */}
-          <Card>
-            <h2 className="text-xl font-bold text-gray-800 mb-6">💬 Envie sua Mensagem</h2>
-
-            {submitted && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-300 rounded-xl text-green-700 text-sm font-medium">
-                ✅ Mensagem enviada com sucesso! Responderemos em breve.
+            {/* Map Placeholder */}
+            <div className="aspect-video bg-gradient-to-br from-on-background/5 to-on-background/10 rounded-xl flex items-center justify-center border border-on-background/10">
+              <div className="text-center">
+                <MapPin className="w-8 h-8 text-on-background/30 mx-auto mb-2" />
+                <span className="text-sm text-on-background/50">São Paulo, Brasil</span>
               </div>
-            )}
-
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-
-              {/* Nome */}
-              <div>
-                <label className={labelClass}>Nome Completo *</label>
-                <input
-                  type="text"
-                  placeholder="Digite seu nome completo"
-                  className={`${inputClass} ${errors.name ? 'border-red-400 focus:ring-red-400' : ''}`}
-                  {...register('name', {
-                    required: 'O nome é obrigatório.',
-                    minLength: { value: 3, message: 'O nome deve ter pelo menos 3 caracteres.' },
-                  })}
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-                )}
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className={labelClass}>E-mail *</label>
-                <input
-                  type="email"
-                  placeholder="seu.email@exemplo.com"
-                  className={`${inputClass} ${errors.email ? 'border-red-400 focus:ring-red-400' : ''}`}
-                  {...register('email', {
-                    required: 'O e-mail é obrigatório.',
-                    pattern: {
-                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                      message: 'Por favor, insira um e-mail válido.',
-                    },
-                  })}
-                />
-                {errors.email && (
-                  <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
-                )}
-              </div>
-
-              {/* Assunto */}
-              <div>
-                <label className={labelClass}>Assunto *</label>
-                <select
-                  className={`${inputClass} ${errors.subject ? 'border-red-400 focus:ring-red-400' : ''}`}
-                  {...register('subject', { required: 'Por favor, selecione um assunto.' })}
-                >
-                  <option value="">Selecione um assunto</option>
-                  <option value="duvida">Dúvida Geral</option>
-                  <option value="sugestao">Sugestão de Melhoria</option>
-                  <option value="bug">Reportar Problema/Bug</option>
-                  <option value="outro">Outro Assunto</option>
-                </select>
-                {errors.subject && (
-                  <p className="text-red-500 text-xs mt-1">{errors.subject.message}</p>
-                )}
-              </div>
-
-              {/* Mensagem */}
-              <div>
-                <label className={labelClass}>Mensagem *</label>
-                <textarea
-                  rows={5}
-                  placeholder="Digite sua mensagem aqui... (mínimo 10 caracteres)"
-                  className={`${inputClass} resize-none ${errors.message ? 'border-red-400 focus:ring-red-400' : ''}`}
-                  {...register('message', {
-                    required: 'A mensagem é obrigatória.',
-                    minLength: { value: 10, message: 'A mensagem deve ter pelo menos 10 caracteres.' },
-                  })}
-                />
-                {errors.message && (
-                  <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
-                )}
-              </div>
-
-              <Button type="submit" variant="primary" className="w-full">
-                Enviar Mensagem ✈️
-              </Button>
-            </form>
-          </Card>
-
-          {/* Informações */}
-          <div className="space-y-4">
-            <Card>
-              <h2 className="text-xl font-bold text-gray-800 mb-4">🏢 Informações de Contato</h2>
-              <div className="space-y-4 text-sm text-gray-600">
-                <div className="flex gap-3">
-                  <span className="text-xl">📧</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">E-mail de Suporte</p>
-                    <p>placeholder@projeto.com.br</p>
-                    <p className="text-xs text-gray-400">Resposta em até 24 horas úteis</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-xl">📞</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Telefone</p>
-                    <p>(11) 9999-9999</p>
-                    <p className="text-xs text-gray-400">Segunda a Sexta, 9h às 18h</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-xl">📍</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Endereço</p>
-                    <p>Av. Exemplo, 1234 - Sala 567</p>
-                    <p>Centro — São Paulo/SP, CEP: 01234-567</p>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <span className="text-xl">🕐</span>
-                  <div>
-                    <p className="font-semibold text-gray-800">Horário de Atendimento</p>
-                    <p>Segunda a Sexta: 9h às 18h</p>
-                    <p>Sábado: 9h às 13h</p>
-                    <p className="text-xs text-gray-400">Domingo e Feriados: Fechado</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="bg-[#1E7E34] text-white text-center">
-              <div className="text-3xl mb-2">🗺️</div>
-              <p className="font-semibold">Localização no Mapa</p>
-              <p className="text-green-100 text-sm mt-1">São Paulo, SP — Brasil</p>
-            </Card>
+            </div>
           </div>
 
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-2xl shadow-sm border border-on-background/10 p-8">
+              <h2 className="text-2xl font-bold text-on-background mb-6">Envie sua Mensagem</h2>
+
+              {isSubmitted && !isSubmitting ? (
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-turma-green" />
+                  </div>
+                  <h3 className="text-xl font-bold text-on-background mb-2">Mensagem Enviada!</h3>
+                  <p className="text-on-background/60 mb-6">
+                    Obrigado pelo contato. Responderemos em breve.
+                  </p>
+                  <button
+                    onClick={handleReset}
+                    className="px-6 py-3 bg-turma-green text-white font-semibold rounded-xl hover:bg-turma-green-light transition-all duration-300"
+                  >
+                    Enviar Nova Mensagem
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="nome" className="block text-sm font-medium text-on-background mb-2">
+                        Nome Completo *
+                      </label>
+                      <input
+                        type="text"
+                        id="nome"
+                        {...register('nome', { 
+                          required: 'Nome é obrigatório',
+                          minLength: {
+                            value: 2,
+                            message: 'Nome deve ter pelo menos 2 caracteres'
+                          }
+                        })}
+                        placeholder="Seu nome completo"
+                        className={`w-full px-4 py-3 bg-surface rounded-xl border ${
+                          errors.nome ? 'border-red-400' : 'border-on-background/10'
+                        } focus:outline-none focus:ring-2 focus:ring-turma-green focus:border-transparent transition-all duration-300`}
+                      />
+                      {errors.nome && <p className="mt-1 text-sm text-red-500">{errors.nome.message}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-on-background mb-2">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        {...register('email', { 
+                          required: 'Email é obrigatório',
+                          pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'Email inválido'
+                          }
+                        })}
+                        placeholder="seu.email@exemplo.com"
+                        className={`w-full px-4 py-3 bg-surface rounded-xl border ${
+                          errors.email ? 'border-red-400' : 'border-on-background/10'
+                        } focus:outline-none focus:ring-2 focus:ring-turma-green focus:border-transparent transition-all duration-300`}
+                      />
+                      {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="telefone" className="block text-sm font-medium text-on-background mb-2">
+                        Telefone *
+                      </label>
+                      <input
+                        type="tel"
+                        id="telefone"
+                        {...register('telefone', { 
+                          required: 'Telefone é obrigatório',
+                          minLength: {
+                            value: 10,
+                            message: 'Telefone deve ter pelo menos 10 caracteres'
+                          }
+                        })}
+                        placeholder="(11) 99999-9999"
+                        className={`w-full px-4 py-3 bg-surface rounded-xl border ${
+                          errors.telefone ? 'border-red-400' : 'border-on-background/10'
+                        } focus:outline-none focus:ring-2 focus:ring-turma-green focus:border-transparent transition-all duration-300`}
+                      />
+                      {errors.telefone && <p className="mt-1 text-sm text-red-500">{errors.telefone.message}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor="assunto" className="block text-sm font-medium text-on-background mb-2">
+                        Assunto *
+                      </label>
+                      <select
+                        id="assunto"
+                        {...register('assunto', { 
+                          required: 'Selecione um assunto'
+                        })}
+                        className={`w-full px-4 py-3 bg-surface rounded-xl border ${
+                          errors.assunto ? 'border-red-400' : 'border-on-background/10'
+                        } focus:outline-none focus:ring-2 focus:ring-turma-green focus:border-transparent transition-all duration-300`}
+                      >
+                        <option value="">Selecione um assunto</option>
+                        {subjectOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                      {errors.assunto && <p className="mt-1 text-sm text-red-500">{errors.assunto.message}</p>}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="mensagem" className="block text-sm font-medium text-on-background mb-2">
+                      Mensagem *
+                    </label>
+                    <textarea
+                      id="mensagem"
+                      {...register('mensagem', { 
+                        required: 'Mensagem é obrigatória',
+                        minLength: {
+                          value: 10,
+                          message: 'Mensagem deve ter pelo menos 10 caracteres'
+                        }
+                      })}
+                      placeholder="Como podemos ajudar?"
+                      rows={5}
+                      className={`w-full px-4 py-3 bg-surface rounded-xl border ${
+                        errors.mensagem ? 'border-red-400' : 'border-on-background/10'
+                      } focus:outline-none focus:ring-2 focus:ring-turma-green focus:border-transparent transition-all duration-300 resize-none`}
+                    />
+                    {errors.mensagem && <p className="mt-1 text-sm text-red-500">{errors.mensagem.message}</p>}
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full md:w-auto px-8 py-4 bg-turma-green text-white font-semibold rounded-xl hover:bg-turma-green-light disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-on-background/30 border-t-on-background rounded-full animate-spin" />
+                        Enviando...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        Enviar Mensagem
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   )
 }
+
+export default Contato
