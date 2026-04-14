@@ -86,14 +86,7 @@ O build será gerado na pasta `dist/`.
 ## Links Importantes
 
 - **Link do Repositório GitHub**: [https://github.com/Carlos-Bianchi/Challenge-frontend-3sprint]
-- **Link do Vídeo no Youtube**: [INSERIR LINK AQUI]
-
-## Observações para Entrega
-
-- **NÃO incluir** a pasta `node_modules` no arquivo .zip final
-- **NÃO incluir** a pasta `.git` no arquivo .zip final
-- Incluir apenas o código fonte, README.md e arquivos de configuração
-- O arquivo .zip deve conter: pasta `src/`, `index.html`, `package.json`, `tsconfig.json`, `tailwind.config.js`, `README.md`, e outros arquivos de configuração necessários
+- **Link do Vídeo no Youtube**: [https://youtu.be/w9SUgqfdRfI]
 
 ## Funcionalidades Implementadas
 
