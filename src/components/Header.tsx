@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, ChevronDown, Heart, X, Users, LayoutDashboard, FileText, Radio } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
+import { formatRole } from '../lib/format'
 
 interface NavItem {
   label: string
@@ -20,6 +22,8 @@ const Header = () => {
   const [isMobileModulesExpanded, setIsMobileModulesExpanded] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
+  const navigate = useNavigate()
+  const { user, isAuthenticated, logout } = useAuth()
 
   const accentColorClass = 'from-turma-green to-turma-green/80'
   const accentTextClass = 'text-turma-green'
@@ -84,6 +88,15 @@ const Header = () => {
   }
 
   const isModuleActive = () => location.pathname.startsWith('/solucao')
+  const userFirstName = user?.nomeCompleto.split(' ')[0] ?? ''
+
+  const handleLogout = () => {
+    logout()
+    setIsMobileMenuOpen(false)
+    setIsModulesDropdownOpen(false)
+    setIsMobileModulesExpanded(false)
+    navigate('/')
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -169,18 +182,41 @@ const Header = () => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              to="/login"
-              className="hidden sm:block px-4 py-2 text-sm font-medium text-on-background hover:text-turma-green transition-colors duration-300"
-            >
-              Login
-            </Link>
-            <Link
-              to="/registro"
-              className={`px-4 py-2 rounded-lg text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300 shadow-md hover:shadow-lg`}
-            >
-              Registre-se
-            </Link>
+            {isAuthenticated && user ? (
+              <div className="hidden md:flex items-center gap-3 rounded-2xl border border-outline-variant bg-white/90 backdrop-blur-xl px-3 py-2 shadow-sm">
+                <div className="text-right leading-tight">
+                  <p className="text-sm font-semibold text-on-background">{userFirstName}</p>
+                  <p className="text-xs text-on-surface-variant">{formatRole(user.papel)}</p>
+                </div>
+                <Link
+                  to="/solucao/dashboard"
+                  className={`px-3 py-2 rounded-xl text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300`}
+                >
+                  Painel
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="px-3 py-2 rounded-xl text-sm font-medium text-on-background hover:bg-surface-container transition-all duration-300"
+                >
+                  Sair
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="hidden sm:block px-4 py-2 text-sm font-medium text-on-background hover:text-turma-green transition-colors duration-300"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/registro"
+                  className={`px-4 py-2 rounded-lg text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300 shadow-md hover:shadow-lg`}
+                >
+                  Registre-se
+                </Link>
+              </>
+            )}
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -257,20 +293,44 @@ const Header = () => {
             </nav>
 
             <div className="border-t border-outline-variant pt-4 flex flex-col gap-2">
-              <Link
-                to="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-xl text-sm font-medium text-on-background hover:bg-surface-container transition-all duration-300 text-center"
-              >
-                Login
-              </Link>
-              <Link
-                to="/registro"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300 text-center`}
-              >
-                Registre-se
-              </Link>
+              {isAuthenticated && user ? (
+                <>
+                  <div className="px-4 py-3 rounded-xl bg-surface-container-low text-center">
+                    <p className="text-sm font-semibold text-on-background">{user.nomeCompleto}</p>
+                    <p className="text-xs text-on-surface-variant mt-1">{formatRole(user.papel)}</p>
+                  </div>
+                  <Link
+                    to="/solucao/dashboard"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`px-4 py-3 rounded-xl text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300 text-center`}
+                  >
+                    Ir para o painel
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-3 rounded-xl text-sm font-medium text-on-background hover:bg-surface-container transition-all duration-300 text-center"
+                  >
+                    Sair
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 rounded-xl text-sm font-medium text-on-background hover:bg-surface-container transition-all duration-300 text-center"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/registro"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`px-4 py-3 rounded-xl text-sm font-medium ${accentBgClass} text-white hover:bg-turma-green-dark transition-all duration-300 text-center`}
+                  >
+                    Registre-se
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -1,15 +1,33 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Eye, EyeOff, Mail, Lock, ArrowRight, Heart, CheckCircle } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Eye, EyeOff, Mail, Lock, ArrowRight, Heart, CheckCircle, AlertCircle } from 'lucide-react'
+import { getApiErrorMessage, getApiFieldErrors } from '../lib/api'
+import { useAuth } from '../hooks/useAuth'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { login } = useAuth()
+  const routeState = location.state as {
+    from?: { pathname?: string }
+    message?: string
+    email?: string
+  } | null
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
+    senha: '',
   })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState(routeState?.message ?? '')
+  const [submitError, setSubmitError] = useState('')
+
+  useEffect(() => {
+    if (routeState?.email) {
+      setFormData((prev) => ({ ...prev, email: routeState.email ?? '' }))
+    }
+  }, [routeState?.email])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
@@ -20,10 +38,10 @@ const Login = () => {
       newErrors.email = 'E-mail inválido'
     }
 
-    if (!formData.password) {
-      newErrors.password = 'Senha é obrigatória'
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Senha deve ter pelo menos 6 caracteres'
+    if (!formData.senha) {
+      newErrors.senha = 'Senha é obrigatória'
+    } else if (formData.senha.length < 6) {
+      newErrors.senha = 'Senha deve ter pelo menos 6 caracteres'
     }
 
     setErrors(newErrors)
@@ -35,14 +53,24 @@ const Login = () => {
     if (!validateForm()) return
 
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsSubmitting(false)
-    alert('Login realizado com sucesso! (Mock)')
+    setSubmitError('')
+
+    try {
+      await login(formData)
+      navigate(routeState?.from?.pathname ?? '/solucao/dashboard', { replace: true })
+    } catch (error) {
+      setErrors((prev) => ({ ...prev, ...getApiFieldErrors(error) }))
+      setSubmitError(getApiErrorMessage(error))
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    setSubmitError('')
+    setSubmitMessage('')
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }))
     }
@@ -67,6 +95,20 @@ const Login = () => {
       <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="bg-white rounded-2xl shadow-lg border border-on-background/5 p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
+            {submitMessage && (
+              <div className="rounded-xl border border-turma-green/20 bg-turma-green/10 px-4 py-3 text-sm text-turma-green flex items-start gap-2">
+                <CheckCircle className="w-4 h-4 mt-0.5" />
+                <span>{submitMessage}</span>
+              </div>
+            )}
+
+            {submitError && (
+              <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600 flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 mt-0.5" />
+                <span>{submitError}</span>
+              </div>
+            )}
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-on-background mb-2">
                 E-mail
@@ -94,20 +136,20 @@ const Login = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-on-background mb-2">
+              <label htmlFor="senha" className="block text-sm font-medium text-on-background mb-2">
                 Senha
               </label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-on-background/40" />
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  id="password"
-                  name="password"
-                  value={formData.password}
+                  id="senha"
+                  name="senha"
+                  value={formData.senha}
                   onChange={handleChange}
                   placeholder="Sua senha"
                   className={`w-full pl-12 pr-12 py-4 bg-surface rounded-xl border transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-turma-green/20 ${
-                    errors.password ? 'border-red-400' : 'border-on-background/10 focus:border-turma-green'
+                    errors.senha ? 'border-red-400' : 'border-on-background/10 focus:border-turma-green'
                   }`}
                 />
                 <button
@@ -118,10 +160,10 @@ const Login = () => {
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
-              {errors.password && (
+              {errors.senha && (
                 <p className="mt-2 text-sm text-red-500 flex items-center gap-1">
                   <CheckCircle className="w-4 h-4" />
-                  {errors.password}
+                  {errors.senha}
                 </p>
               )}
             </div>
@@ -135,10 +177,10 @@ const Login = () => {
                 <span className="text-sm text-on-background/70">Lembrar-me</span>
               </label>
               <Link
-                to="/recuperar-senha"
+                to="/contato"
                 className="text-sm text-turma-green hover:text-[#007a29] font-medium transition-colors duration-300"
               >
-                Esqueceu a senha?
+                Precisa de ajuda?
               </Link>
             </div>
 

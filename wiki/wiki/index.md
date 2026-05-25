@@ -16,6 +16,9 @@
 - [Match - Sistema de Matching](./pages/match.md)
 - [Comunicação - Sistema de Mensagens](./pages/comunicacao.md)
 - [DashboardView - Painel de Controle](./pages/dashboard-view.md)
+- [Usuários - Gestão Real de Usuários](./pages/usuarios.md)
+- [Relatórios - Registros de Atendimento](./pages/relatorios.md)
+- [Autenticação - Login, Sessão e Registro](./pages/auth-integration.md)
 
 ### Páginas Adicionais (Wiki Principal)
 Veja a [wiki principal](../../wiki/wiki/index.md) para documentação completa de:
@@ -23,4 +26,4 @@ Veja a [wiki principal](../../wiki/wiki/index.md) para documentação completa d
 
 ---
 
-**Última atualização:** 2026-04-11 (atualizado com Match, Integrantes, Comunicacao, Sobre, DashboardView)
+**Última atualização:** 2026-05-24 (integração real com backend em auth, dashboard, usuários, match, comunicação e relatórios)

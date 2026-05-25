@@ -1,49 +1,29 @@
 # Comunicacao - Sistema de Notificações
 
-Página de notificações e mensagens da plataforma.
+Hub de comunicação conectado ao backend real.
 
 ## Arquivo
 `src/pages/solucao/Comunicacao.tsx`
 
-## Funcionalidades
+## Fontes de Dados
+- `GET /api/comunicacoes`
+- `PATCH /api/comunicacoes/{id}/read`
+- `DELETE /api/comunicacoes/{id}`
+- `GET /api/usuarios` para resolver nomes de remetente
 
-### Lista de Notificações
-- Cards com remetente, assunto, preview e timestamp
-- Indicadores de mensagens não lidas
-- Tags para categorização (Urgente, Pacientes, etc.)
-- Fontes: WhatsApp, Email, Sistema
+## Estrutura Atual
+- Sidebar por canal (`inbox`, `whatsapp`, `email`, `sms`)
+- Feed central com busca, filtro por leitura e urgência
+- Agrupamento em **não lidas** e **já lidas**
+- Painel de detalhes com resumo, conteúdo, canal, categoria e vínculo de match
 
-### Filtros
-- Tabs: Todas, Não Lidas, Urgentes
-- Filtro por fonte (WhatsApp, Email)
-- Busca por texto
-
-### Detalhes da Mensagem
-- Visualização completa do conteúdo
-- Ações: Responder, Arquivar, Excluir
-
-## Dados Mockados
-
-Exemplo de notificação:
-```typescript
-{
-  id: 1,
-  sender: 'Ana Clara Souza',
-  source: 'whatsapp',
-  category: 'Doações',
-  subject: 'Urgente: Paciente precisa de ajuda',
-  preview: 'Olá, preciso de ajuda com um paciente...',
-  time: '09:42',
-  date: 'Hoje',
-  read: false,
-  urgent: true,
-  tags: ['Urgente', 'Pacientes']
-}
-```
-
-## Últimas Alterações
-**2026-04-11:** Removido kanji "援助" do subject de exemplo, substituído por "ajuda" em português (linha 66)
+## Adaptação Feita
+O backend não retorna timestamp, nome do remetente nem tags prontas. A página agora:
+- resolve o nome do remetente via `remetenteUsuarioId`
+- agrupa por estado de leitura em vez de datas mockadas
+- usa `categoria`, `urgente` e `canal` como metadados principais
 
 ## Backlinks
 - [Dashboard](./dashboard-view.md)
 - [Index](../index.md)
+- [Autenticação](./auth-integration.md)

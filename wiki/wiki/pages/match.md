@@ -1,33 +1,31 @@
 # Match - Sistema de Matching
 
-Página de matching entre pacientes e dentistas voluntários.
+Página de matching real conectada ao backend Java.
 
 ## Arquivo
 `src/pages/solucao/Match.tsx`
 
-## Componentes Principais
+## Fontes de Dados
+- `GET /api/usuarios`
+- `GET /api/matches`
+- `GET /api/matches/recommendations?patientId=...`
+- `POST /api/matches`
+- `GET /api/especialidades`
 
-### Fila de Espera
-- Lista de pacientes aguardando atendimento
-- Badge "12 Pendentes" com ícone de sino
-- Cards com informações do paciente (nome, localização, especialidade)
+## Estrutura Atual
+- **Fila de pacientes** montada a partir de usuários com papel `paciente`
+- **Recomendações reais** por paciente usando `DentistRecommendationResponse`
+- **Filtro por especialidade** aplicado no cliente sobre as recomendações recebidas
+- **Criação de match** usando os scores retornados pela recomendação
+- **Histórico recente** com nomes resolvidos a partir da lista de usuários
 
-### TOP 3 Recomendados
-- Cards de dentistas recomendados com match percentage
-- Barras de progresso para Localização e Especialidade
-- Botão "Criar Match"
-
-### Filtros
-- Selects para: Localização, Especialidade, Disponibilidade
-- Botão de busca
-
-### Matches Recentes
-- Lista com filtros: Todos, Pendentes, Confirmados
-- Status badges com cores (verde, amarelo, vermelho)
-
-## Últimas Alterações
-**2026-04-11:** Adicionado `whitespace-nowrap` no texto "12 Pendentes" para evitar quebra de linha
+## Adaptação Feita
+O mock antigo usava localização, clínica e timestamps que o backend não entrega nesse fluxo. A interface foi simplificada para trabalhar com:
+- nome/email/status do paciente
+- especialidade e scores da recomendação
+- status e IDs no histórico de match
 
 ## Backlinks
 - [Dashboard](./dashboard-view.md)
 - [Index](../index.md)
+- [Usuários](./usuarios.md)

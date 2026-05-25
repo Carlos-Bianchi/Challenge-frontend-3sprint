@@ -23,6 +23,8 @@ SPA moderna para a ONG Turma do Bem, conectando pacientes com voluntários odont
 **Auth**
 - Login: Autenticação de usuários
 - Registro: Cadastro de novos usuários
+- Sessão local persistida com `AuthContext` e `localStorage`
+- Rotas `/solucao/*` protegidas no cliente via `ProtectedRoute`
 
 **Solução Dashboard**
 - Match: Sistema de matching paciente-dentista
@@ -30,6 +32,11 @@ SPA moderna para a ONG Turma do Bem, conectando pacientes com voluntários odont
 - Usuarios: Gestão de pacientes e voluntários
 - DashboardView: Visualização de métricas
 - Relatorios: Upload e gestão de documentos
+
+## Backend Integration
+- Todas as chamadas usam `fetch` nativo com URLs relativas `/api`
+- `vite.config.ts` possui proxy de desenvolvimento para `http://localhost:8080`
+- Backend real expõe contratos enxutos, então as páginas de solução foram simplificadas para refletir apenas os campos realmente retornados
 
 ## Design System
 Cores principais da ONG Turma do Bem:
@@ -42,4 +49,4 @@ Cores principais da ONG Turma do Bem:
 - [Pages](./pages/)
 
 ---
-*Last updated: 2026-04-11*
+*Last updated: 2026-05-24*

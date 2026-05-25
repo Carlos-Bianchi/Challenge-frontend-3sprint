@@ -1,5 +1,55 @@
 # Log de Mudanças
 
+## 2026-05-24 - Integração real com backend Java
+
+### Auth + Sessão (`src/lib/api.ts`, `src/contexts/AuthContext.tsx`, `src/routes/ProtectedRoute.tsx`, `src/pages/Login.tsx`, `src/pages/Registro.tsx`, `src/components/Header.tsx`, `vite.config.ts`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Criada camada compartilhada de API com `fetch` nativo e tratamento de `ApiError`
+  - Adicionada persistência local da sessão com `AuthContext`
+  - Protegidas as rotas `/solucao/*`
+  - Login passou a usar `POST /api/auth/login`
+  - Registro passou a usar `POST /api/auth/register` com payload real de paciente
+  - Header agora mostra estado autenticado e logout
+  - Vite dev server usa proxy `/api` para `localhost:8080`
+
+### DashboardView.tsx (`src/pages/solucao/DashboardView.tsx`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Removidos dados mockados
+  - Página agora consome `GET /api/dashboard/summary`
+  - Cards adaptados ao DTO real agregado do backend
+
+### Usuarios.tsx e UsuarioDetalhes.tsx (`src/pages/solucao/Usuarios.tsx`, `src/pages/solucao/UsuarioDetalhes.tsx`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Listagem usa `GET /api/usuarios`
+  - Alteração de status usa `PATCH /api/usuarios/{id}/status`
+  - Exclusão usa `DELETE /api/usuarios/{id}`
+  - Detalhe reduzido aos campos realmente expostos por `UsuarioResponse`
+
+### Match.tsx (`src/pages/solucao/Match.tsx`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Recomendações reais via `GET /api/matches/recommendations`
+  - Criação de match persistida via `POST /api/matches`
+  - Histórico carregado via `GET /api/matches`
+
+### Comunicacao.tsx (`src/pages/solucao/Comunicacao.tsx`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Feed carregado via `GET /api/comunicacoes`
+  - Marcação de leitura via `PATCH /api/comunicacoes/{id}/read`
+  - Exclusão via `DELETE /api/comunicacoes/{id}`
+  - Remetentes resolvidos por `GET /api/usuarios`
+
+### Relatorios.tsx (`src/pages/solucao/Relatorios.tsx`)
+- **Status:** Atualizado
+- **Mudanças:**
+  - Formulário refeito para o contrato real de `registros-atendimento`
+  - Agendamentos, matches e usuários são cruzados para exibir contexto clínico
+  - Criação usa `POST /api/registros-atendimento`
+
 ## 2026-04-11 - Sessão de UI/UX Improvements
 
 ### Match.tsx (`src/pages/solucao/Match.tsx`)

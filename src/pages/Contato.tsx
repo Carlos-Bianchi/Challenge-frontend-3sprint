@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
 
@@ -15,7 +16,6 @@ const Contato = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    watch,
   } = useForm<FormData>({
     mode: 'onBlur',
     defaultValues: {
@@ -27,14 +27,7 @@ const Contato = () => {
     },
   })
 
-  // Watch form values to show success state
-  const formValues = watch()
-  const isSubmitted = formValues.nome === '' && 
-                      formValues.email === '' && 
-                      formValues.telefone === '' && 
-                      formValues.assunto === '' && 
-                      formValues.mensagem === '' &&
-                      !isSubmitting
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const contactInfo = [
     {
@@ -71,9 +64,11 @@ const Contato = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500))
     console.log('Form data submitted:', data)
     reset()
+    setIsSubmitted(true)
   }
 
   const handleReset = () => {
+    setIsSubmitted(false)
     reset()
   }
 

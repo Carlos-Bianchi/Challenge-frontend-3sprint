@@ -1,54 +1,35 @@
 # DashboardView - Painel de Controle
 
-Dashboard analítico com estatísticas e métricas do sistema.
+Dashboard operacional alimentado por dados reais do backend.
 
 ## Arquivo
 `src/pages/solucao/DashboardView.tsx`
 
-## Componentes Principais
+## Fonte de Dados
+- `GET /api/dashboard/summary`
 
-### Estatísticas de Matches
-Grid com 3 colunas exibindo:
-- **Pendentes:** 12 (badge amarelo)
-- **Confirmados:** 127 (badge verde)
-- **Rejeitados:** 8 (badge vermelho)
+## Estrutura Atual
+- Card de **Usuários** com total e distribuição por papel (`paciente`, `dentista_voluntario`, `administrador`)
+- Card de **Matches** com o total de `matchesConfirmados`
+- Card de **Comunicação** com `comunicacoesNaoLidas`
+- Card de **Agendamentos** com breakdown por status
+- Card de **Resumo operacional** com leitura textual dos agregados
 
-Cada badge contém:
-- Número em destaque (text-2xl font-bold)
-- Label embaixo (text-xs)
-- Com `whitespace-nowrap` para evitar quebra de linha
+## Adaptação Feita
+O mock antigo assumia métricas e gráficos que o backend não retorna. A página foi mantida no mesmo tom visual, mas passou a exibir apenas os campos reais do DTO `DashboardSummaryResponse`.
 
-### Cards de Métricas
-- Total de matches
-- Pacientes cadastrados
-- Voluntários ativos
-- Tempo médio de resposta
-
-### Gráficos
-- Evolução de matches ao longo do tempo
-- Distribuição por especialidade
-- Mapa de calor por região
-
-### Atividades Recentes
-- Lista das últimas ações no sistema
-- Timestamps
-- Usuários envolvidos
-
-## Dados Mockados
+## DTO Relevante
 ```typescript
-const data = {
-  matches: {
-    total: 147,
-    pendentes: 12,
-    confirmados: 127,
-    rejeitados: 8
-  }
+interface DashboardSummaryResponse {
+  totalUsuarios: number
+  usuariosPorPapel: Record<string, number>
+  matchesConfirmados: number
+  comunicacoesNaoLidas: number
+  agendamentosPorStatus: Record<string, number>
 }
 ```
-
-## Últimas Alterações
-**2026-04-11:** Adicionado `whitespace-nowrap` nos textos dos badges "Pendentes", "Confirmados", "Rejeitados" para evitar quebra de linha
 
 ## Backlinks
 - [Index](../index.md)
 - [Match](./match.md)
+- [Usuários](./usuarios.md)

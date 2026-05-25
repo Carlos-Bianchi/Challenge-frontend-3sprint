@@ -14,6 +14,7 @@ import Usuarios from '../pages/solucao/Usuarios'
 import UsuarioDetalhes from '../pages/solucao/UsuarioDetalhes'
 import DashboardView from '../pages/solucao/DashboardView'
 import Relatorios from '../pages/solucao/Relatorios'
+import ProtectedRoute from './ProtectedRoute'
 
 const AppRoutes = () => {
   return (
@@ -25,23 +26,30 @@ const AppRoutes = () => {
       <Route path="/integrantes" element={<Integrantes />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registro" element={<Registro />} />
-      <Route path="/solucao" element={<Solucao />}>
-        <Route index element={<SolucaoIndex />} />
-        <Route path="match" element={<Match />} />
-        <Route path="comunicacao" element={<Comunicacao />} />
-        <Route path="usuarios" element={<Usuarios />} />
-        <Route path="usuarios/:id" element={<UsuarioDetalhes />} />
-        <Route path="dashboard" element={<DashboardView />} />
-        <Route path="relatorios" element={<Relatorios />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/solucao" element={<Solucao />}>
+          <Route index element={<SolucaoIndex />} />
+          <Route path="match" element={<Match />} />
+          <Route path="comunicacao" element={<Comunicacao />} />
+          <Route path="usuarios" element={<Usuarios />} />
+          <Route path="usuarios/:id" element={<UsuarioDetalhes />} />
+          <Route path="dashboard" element={<DashboardView />} />
+          <Route path="relatorios" element={<Relatorios />} />
+        </Route>
       </Route>
     </Routes>
   )
 }
 
 const SolucaoIndex = () => (
-  <div className="p-6">
-    <h2 className="text-2xl font-bold text-gray-900 mb-4">Bem-vindo à Solução</h2>
-    <p className="text-gray-600">Selecione um módulo no menu lateral para começar.</p>
+  <div className="rounded-2xl bg-white p-8 shadow-sm border border-on-background/5">
+    <span className="text-xs uppercase tracking-[0.2em] text-on-surface-variant font-medium">
+      Ambiente autenticado
+    </span>
+    <h2 className="text-3xl font-bold text-on-background mt-2 mb-3">Bem-vindo à solução</h2>
+    <p className="text-on-surface-variant">
+      Acesse os módulos no menu principal para acompanhar dashboard, usuários, comunicações, matches e atendimentos.
+    </p>
   </div>
 )
 
