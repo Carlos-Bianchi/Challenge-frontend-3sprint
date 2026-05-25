@@ -87,7 +87,7 @@ O build será gerado na pasta `dist/`.
 
 - **Link do Repositório GitHub**: [https://github.com/Carlos-Bianchi/Challenge-frontend-3sprint]
 - **Link do Vídeo no Youtube**: [https://youtu.be/w9SUgqfdRfI]
-- **URL do projeto hospedado na Vercel**: pendente de publicação neste ambiente por falta de credenciais/projeto Vercel vinculados
+- **URL do projeto hospedado na Vercel**: [https://challenge-frontend-3sprint.vercel.app/](https://challenge-frontend-3sprint.vercel.app/)
 
 ## Contato
 
