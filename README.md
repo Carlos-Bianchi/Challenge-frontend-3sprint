@@ -1,4 +1,4 @@
-# Challenge Frontend - Sprint 03 - React + Vite + TypeScript
+# Challenge Frontend - Sprint 04 - React + Vite + TypeScript
 
 ## Descrição do Projeto
 
@@ -52,7 +52,7 @@ A plataforma permite:
 
 1. Clone o repositório:
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone https://github.com/Carlos-Bianchi/Challenge-frontend-3sprint.git
 cd Challenge-frontend-3sprint
 ```
 
@@ -83,10 +83,16 @@ O build será gerado na pasta `dist/`.
 | Carlos Aurelio Tolosa Bianchi | [RM 567897] | 1tdsps | [https://github.com/Carlos-Bianchi] | [https://www.linkedin.com/in/carlos-bianchi-6608a3272/] |
 | Vinicius Morrone Lustosa | [RM 566884] | 1tdsps | [https://github.com/viniciusmorrone] | [https://www.linkedin.com/in/vin%C3%ADcius-morrone-lustosa/] |
 
-## Links Importantes
+## Como Usar
 
 - **Link do Repositório GitHub**: [https://github.com/Carlos-Bianchi/Challenge-frontend-3sprint]
 - **Link do Vídeo no Youtube**: [https://youtu.be/w9SUgqfdRfI]
+- **URL do projeto hospedado na Vercel**: pendente de publicação neste ambiente por falta de credenciais/projeto Vercel vinculados
+
+## Contato
+
+- **Carlos Aurelio Tolosa Bianchi**: [GitHub](https://github.com/Carlos-Bianchi) | [LinkedIn](https://www.linkedin.com/in/carlos-bianchi-6608a3272/)
+- **Vinicius Morrone Lustosa**: [GitHub](https://github.com/viniciusmorrone) | [LinkedIn](https://www.linkedin.com/in/vin%C3%ADcius-morrone-lustosa/)
 
 ## Funcionalidades Implementadas
 
@@ -100,4 +106,4 @@ O build será gerado na pasta `dist/`.
 
 ---
 
-**Projeto desenvolvido para o Challenge Frontend Sprint 03 - Turma do Bem**
+**Projeto desenvolvido para o Challenge Frontend Sprint 04 - Turma do Bem**

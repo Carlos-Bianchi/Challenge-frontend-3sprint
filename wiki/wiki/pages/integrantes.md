@@ -14,17 +14,21 @@ Página que exibe os desenvolvedores do projeto.
 ### Equipe de Desenvolvimento
 Grid com 2 desenvolvedores:
 
-#### Carlos
+#### Carlos Aurelio Tolosa Bianchi
 - **Role:** Desenvolvedor
-- **Ícone:** User (lucide-react)
+- **Foto:** `https://github.com/Carlos-Bianchi.png`
+- **RM:** 567897
+- **Turma:** 1tdsps
 - **Cores:** Gradiente verde (#006422 → #008c30)
 - **Links:**
   - GitHub: https://github.com/Carlos-Bianchi
   - LinkedIn: https://www.linkedin.com/in/carlos-bianchi-6608a3272/
 
-#### Vinicius
+#### Vinicius Morrone Lustosa
 - **Role:** Desenvolvedor
-- **Ícone:** User (lucide-react)
+- **Foto:** `https://github.com/viniciusmorrone.png`
+- **RM:** 566884
+- **Turma:** 1tdsps
 - **Cores:** Gradiente verde (#006422 → #008c30)
 - **Links:**
   - GitHub: https://github.com/viniciusmorrone
@@ -32,11 +36,18 @@ Grid com 2 desenvolvedores:
 
 ### Design dos Cards
 - Header com gradiente colorido
-- Avatar circular com ícone
+- Avatar circular com foto real via GitHub avatar URL
 - Nome em destaque
 - Badge de role
+- Bloco textual com RM e turma
 - Dois botões redondos: GitHub (cinza) e LinkedIn (verde)
 - Hover effects nos botões
+
+### 2026-05-24 - Atualização para Tarefa 2
+- Substituído avatar genérico por foto real via GitHub
+- Atualizados nomes completos dos integrantes
+- Adicionados RM e turma em cada card
+- Mantidos links existentes de GitHub e LinkedIn
 
 ## Histórico de Mudanças
 

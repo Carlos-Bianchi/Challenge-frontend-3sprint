@@ -1,10 +1,9 @@
-import { User } from 'lucide-react'
-import type { ReactNode } from 'react'
-
 interface TeamMember {
   name: string
   role: string
-  icon: ReactNode
+  photoUrl: string
+  rm: string
+  turma: string
   color: string
   githubUrl?: string
   linkedinUrl?: string
@@ -12,17 +11,21 @@ interface TeamMember {
 
 const developmentTeam: TeamMember[] = [
   {
-    name: 'Carlos',
+    name: 'Carlos Aurelio Tolosa Bianchi',
     role: 'Desenvolvedor',
-    icon: <User className="w-10 h-10 text-turma-green" />,
+    photoUrl: 'https://github.com/Carlos-Bianchi.png',
+    rm: '567897',
+    turma: '1tdsps',
     color: 'from-turma-green to-turma-green',
     githubUrl: 'https://github.com/Carlos-Bianchi',
     linkedinUrl: 'https://www.linkedin.com/in/carlos-bianchi-6608a3272/',
   },
   {
-    name: 'Vinicius',
+    name: 'Vinicius Morrone Lustosa',
     role: 'Desenvolvedor',
-    icon: <User className="w-10 h-10 text-turma-green" />,
+    photoUrl: 'https://github.com/viniciusmorrone.png',
+    rm: '566884',
+    turma: '1tdsps',
     color: 'from-turma-green to-turma-green',
     githubUrl: 'https://github.com/viniciusmorrone',
     linkedinUrl: 'https://www.linkedin.com/in/vin%C3%ADcius-morrone-lustosa/',
@@ -37,9 +40,11 @@ const Integrantes = () => {
     >
       <div className={`h-24 bg-gradient-to-br ${member.color} relative`}>
         <div className="absolute -bottom-10 left-6">
-          <div className="w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center border-4 border-white">
-            {member.icon}
-          </div>
+          <img
+            src={member.photoUrl}
+            alt={member.name}
+            className="w-20 h-20 rounded-full bg-white shadow-lg object-cover border-4 border-white"
+          />
         </div>
       </div>
       <div className="pt-14 pb-6 px-6">
@@ -47,11 +52,21 @@ const Integrantes = () => {
         <span className="inline-block px-3 py-1 rounded-full text-xs font-medium mt-1 mb-4 bg-turma-green/10 text-turma-green">
           {member.role}
         </span>
+        <div className="space-y-1 mb-4 text-sm text-on-background/70">
+          <p>
+            <span className="font-semibold text-on-background">RM:</span> {member.rm}
+          </p>
+          <p>
+            <span className="font-semibold text-on-background">Turma:</span> {member.turma}
+          </p>
+        </div>
         <div className="flex items-center gap-3">
           <a
             href={member.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`GitHub de ${member.name}`}
+            title="GitHub"
             className="w-10 h-10 rounded-full bg-on-background/5 flex items-center justify-center hover:bg-[#1a1c19] transition-all duration-300 group"
           >
             <svg className="w-5 h-5 text-on-background group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -62,6 +77,8 @@ const Integrantes = () => {
             href={member.linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`LinkedIn de ${member.name}`}
+            title="LinkedIn"
             className="w-10 h-10 rounded-full bg-turma-green/10 flex items-center justify-center hover:bg-turma-green transition-all duration-300 group"
           >
             <svg className="w-5 h-5 text-turma-green group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">

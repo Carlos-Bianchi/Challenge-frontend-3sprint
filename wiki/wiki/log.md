@@ -133,3 +133,6 @@
 - Criado index.md com índice de páginas
 - Criado overview.md com visão geral do projeto
 - Inicializado log.md
+## 2026-05-24
+
+- Atualizada `src/pages/Integrantes.tsx` para exibir foto real via GitHub avatar, nome completo, RM e turma de Carlos Aurelio Tolosa Bianchi e Vinicius Morrone Lustosa, preservando os links existentes de GitHub e LinkedIn e o layout responsivo.
